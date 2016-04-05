@@ -1,0 +1,76 @@
+<html ng-app="WhiteLotusApp">
+<head>
+    <meta charset="UTF-8">
+    <title>White Lotus</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body ng-controller='WhiteLotusCtrl as vm'>
+<div class="row">
+    <div class='col-md-3 col-xs-12'>
+        <div ng-repeat='person in vm.persons | orderBy: "name"'>
+            {{person.name}} {{person.surname}}
+        </div>
+
+        <div>
+            <form ng-submit="vm.addPerson()">
+                Adaugă o persoană:
+                <ul>
+                    <li>
+                        <input ng-model="vm.newPerson.name" placeholder="Nume">
+                    </li>
+                    <li>
+                        <input ng-model="vm.newPerson.surname1" placeholder="Prenume"> <input ng-model="vm.newPerson.surname2" placeholder="Prenume">
+                    </li>
+                    <li>
+                        <input ng-model="vm.newPerson.gender" placeholder="Sex">
+                    </li>
+                    <li>
+                        <input ng-model="vm.newPerson.date.day" placeholder="Zi">/<input ng-model="vm.newPerson.date.month" placeholder="Lună">/<input ng-model="vm.newPerson.date.year" placeholder="An">
+                    </li>
+                    <li>
+                        <input ng-model="vm.newPerson.date.hours" placeholder="Oră">:<input ng-model="vm.newPerson.date.minutes" placeholder="Minute">
+                    </li>
+                    <li>
+                        <input ng-model="vm.newPerson.tz" placeholder="Fus orar (GMT+?)"> <input ng-model="vm.newPerson.longitude" placeholder="Longitudine">
+                    </li>
+                </ul>
+                <button type="submit" class="btn btn-primary">Adaugă</button>
+            </form>
+        </div>
+    </div>
+    <div class='col-md-9 col-xs-12'>
+        Zi: <input id='psq-day' ng-model="vm.date.day">
+        Luna: <input ng-model="vm.date.month">
+        An: <input ng-model="vm.date.year">
+        Date obj: <p>{{vm.date | json}}</p>
+
+        <p>OP: {{vm.op | json}}</p>
+
+        <div class="square">
+            <table class='ps-table'>
+                <tr>
+                    <td class='psq-1'>{{vm.digitsSquare[1]}}</td>
+                    <td class='psq-4'>{{vm.digitsSquare[4]}}</td>
+                    <td class='psq-7'>{{vm.digitsSquare[7]}}</td>
+                </tr>
+                <tr>
+                    <td class='psq-2'>{{vm.digitsSquare[2]}}</td>
+                    <td class='psq-5'>{{vm.digitsSquare[5]}}</td>
+                    <td class='psq-8'>{{vm.digitsSquare[8]}}</td>
+                </tr>
+                <tr>
+                    <td class='psq-3'>{{vm.digitsSquare[3]}}</td>
+                    <td class='psq-6'>{{vm.digitsSquare[6]}}</td>
+                    <td class='psq-9'>{{vm.digitsSquare[9]}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
