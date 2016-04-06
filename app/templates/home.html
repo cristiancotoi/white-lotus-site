@@ -1,0 +1,12 @@
+<!-- Welcome screen -->
+<div class="dialog-box" ng-if="authSrvc.isAnonymous()">
+  <h1>Welcome</h1>
+  <a href="#/login" class="button">Login</a>
+  <a href="#/register" class="button">Register</a>
+</div>
+
+<!-- User home screen -->
+<div class="dialog-box" ng-if="!authSrvc.isAnonymous()">
+	<h1>Welcome, {{fullName}} ({{username}})</h1>
+	<p>Please use the navigation menu on the left.</p>
+</div>

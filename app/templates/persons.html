@@ -1,0 +1,20 @@
+<!-- White Lotus screen -->
+<div class="text-center">
+  <table id="phones" ng-if="results.length > 0" style="float: none;">
+    <tr  style="float: none;">
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Action</th>
+    </tr>
+    <tr ng-repeat="phone in results"  style="float: none;">
+      <td>{{phone.person}}</td>
+      <td>{{phone.number}}</td>
+      <td>
+        <a href="#/edit/{{phone.objectId}}" class="link">Edit</a>
+        <a href="#/delete/{{phone.objectId}}" class="link">Delete</a>
+      </td>
+    </tr>
+  </table>
+  <p ng-if="results.length < 1">There is no phones</p>
+  <p><a href="#/add" class="button">Add Phone</a></p>
+</div>

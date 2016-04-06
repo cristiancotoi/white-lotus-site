@@ -1,0 +1,16 @@
+<!-- Login screen -->
+<div id="login-form" class="dialog-box">
+	<h1>Login</h1>
+	<p>
+		<label for="username">Username:</label>
+		<input type="text" id="username" ng-model="userData.username"/>
+	</p>
+	<p>
+		<label for="password">Password:</label>
+		<input type="password" id="password"  ng-model="userData.password"/>
+	</p>
+	<p class="buttons">
+		<a href="" ng-click="login(userData)" class="button">Login</a>
+		<a href="#/register" class="link">Register</a>
+	<p>
+</div>

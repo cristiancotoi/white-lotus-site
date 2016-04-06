@@ -1,0 +1,20 @@
+<!-- Add phone screen -->
+<div id="add-phone-form" class="dialog-box">
+  <h1>{{subTitle}}</h1>
+  <p>
+    <label for="personName">Name:</label>
+    <input type="text" ng-if="!isDelete" id="personName" ng-model="phoneData.person">
+    <input type="text" ng-if="isDelete" id="personName" ng-model="phoneData.person" readonly >
+  </p>
+  <p>
+    <label for="phoneNumber">Number:</label>
+    <input type="text" ng-if="!isDelete" id="phoneNumber" ng-model="phoneData.number">
+    <input type="text" ng-if="isDelete" id="phoneNumber" ng-model="phoneData.number" readonly >
+  </p>
+  <p class="buttons">
+    <a href="" ng-if="isAdd" ng-click="add(phoneData)" class="button">Add</a>
+    <a href="" ng-if="!isAdd && !isDelete" ng-click="edit(phoneData)" class="button">Edit</a>
+    <a href="" ng-if="isDelete" ng-click="delete(phoneData)" class="button">Delete</a>
+    <a href="#/persons" class="button">Cancel</a>
+  </p>
+</div>
