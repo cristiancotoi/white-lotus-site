@@ -15,7 +15,7 @@
 
 <!-- Main screen placeholder -->
 <main id="app-content" class="block-center">
-    <div ng-include="'templates/partial/left-sidebar.html'" style="float: left;" ng-if="!authSrvc.isAnonymous()"></div>
+    <div ng-include="'templates/partial/left-sidebar.html'" style="float: left;" ng-if="true"></div>
     <div class="center-block text-center" styles="float: none;">
         <ng-view></ng-view>
     </div>
@@ -35,17 +35,10 @@
 <script src="js/app.js"></script>
 
 <script src="js/controllers/AppCtrl.js"></script>
-<script src="js/controllers/HomeCtrl.js"></script>
-<script src="js/controllers/RegisterUpdateProfileCtrl.js"></script>
-<script src="js/controllers/LoginCtrl.js"></script>
-<script src="js/controllers/CreateUpdateDeletePersonCtrl.js"></script>
-<script src="js/controllers/PersonsCtrl.js"></script>
+<script src="js/controllers/personsCtrl.js"></script>
 
 <!--Services-->
-<script src="js/services/authSrvc.js"></script>
-<script src="js/services/notifySrvc.js"></script>
-<script src="js/services/phoneSrvc.js"></script>
-<script src="js/services/profileSrvc.js"></script>
+<script src="js/services/personsService.js"></script>
 
 </body>
 

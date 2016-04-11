@@ -2,19 +2,19 @@
 <div class="text-center">
   <table id="phones" ng-if="results.length > 0" style="float: none;">
     <tr  style="float: none;">
-      <th>Name</th>
-      <th>Phone</th>
-      <th>Action</th>
+      <th>Nume</th>
+      <th>Data</th>
+      <th>Acțiuni</th>
     </tr>
-    <tr ng-repeat="phone in results"  style="float: none;">
-      <td>{{phone.person}}</td>
-      <td>{{phone.number}}</td>
+    <tr ng-repeat="person in results" style="float: none;">
+      <td>{{person.person}}</td>
+      <td>{{person.number}}</td>
       <td>
-        <a href="#/edit/{{phone.objectId}}" class="link">Edit</a>
-        <a href="#/delete/{{phone.objectId}}" class="link">Delete</a>
+        <a href="#/edit/{{person.objectId}}" class="link">Edit</a>
+        <a href="#/delete/{{person.objectId}}" class="link">Delete</a>
       </td>
     </tr>
   </table>
-  <p ng-if="results.length < 1">There is no phones</p>
-  <p><a href="#/add" class="button">Add Phone</a></p>
+  <p ng-if="!results.length">Nu există persoane în listă</p>
+  <p><a href="#/addPerson" class="button">Adaugă o persoană</a></p>
 </div>

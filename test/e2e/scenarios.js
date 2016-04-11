@@ -3,7 +3,7 @@ describe('WhiteLotusCtrl', function(){
   describe('Phone list view', function() {
 
     beforeEach(function() {
-      browser.get('app/index.html');
+      browser.get('app/index-old.html');
     });
 
     it('should filter the phone list as a user types into the search box', function() {

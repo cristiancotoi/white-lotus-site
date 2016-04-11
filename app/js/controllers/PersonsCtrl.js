@@ -1,22 +1,62 @@
+/**
+ * Created by Cristian on 10/04/2016.
+ */
+
 'use strict';
 
-// The AddCtrl holds the presentation logic for the Add screen
-app.controller('PersonsCtrl',
-    function ($scope, $rootScope, $location, phoneSrvc, notifySrvc, authSrvc) {
-        $rootScope.pageTitle = "List"
+app.controller(
+    'personsCtrl',
+    function ($scope, $rootScope, personsService) {
+        $rootScope.pageTitle = 'List';
         $scope.results = [];
 
-        $scope.list = function (phoneData) {
-            phoneSrvc.get()
-                .$promise
-                .then(function (data) {
-                    console.debug(data);
-                    $scope.results = (data.results) ? data.results : [];
-                }, function (err) {
-                    notifySrvc.showError("Get Phones failed", err);
-                });
+        var person = {
+            name: '@name',
+            surname: '@surname',
+            date: {
+                year: '@year',
+                month: '@month',
+                day: '@day',
+                hour: '@hour',
+                minutes: '@minutes'
+            },
+            tz: '@tz'
+            //comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]
         };
 
-        $scope.list();
+        var promiseSave = personsService
+            .person({
+                name: 'George',
+                surname: 'of the Jungle'
+            })
+            .save();
+
+        var savePromiseResult = promiseSave
+            .$promise
+            .catch(function (err) {
+                console.log('Persons err', err);
+            })
+            .then(function (payload) {
+                console.log('Persons payload', payload.data);
+                console.log('Persons data', payload.data);
+                console.log(promiseQuery);
+            });
+        console.log(savePromiseResult);
+
+        var promiseQuery = personsService
+            .person()
+            .query();
+
+        var promiseResult = promiseQuery
+            .$promise
+            .catch(function (err) {
+                console.log('Persons err', err);
+            })
+            .then(function (payload) {
+                console.log('Persons payload', payload.data);
+                console.log('Persons data', payload.data);
+                console.log(promiseQuery);
+            });
+        console.log(promiseResult);
     }
 );

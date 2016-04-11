@@ -4,12 +4,12 @@
   <p>
     <label for="personName">Name:</label>
     <input type="text" ng-if="!isDelete" id="personName" ng-model="phoneData.person">
-    <input type="text" ng-if="isDelete" id="personName" ng-model="phoneData.person" readonly >
+    <input type="text" ng-if="isDelete" id="personName" ng-model="phoneData.person" readonly>
   </p>
   <p>
     <label for="phoneNumber">Number:</label>
     <input type="text" ng-if="!isDelete" id="phoneNumber" ng-model="phoneData.number">
-    <input type="text" ng-if="isDelete" id="phoneNumber" ng-model="phoneData.number" readonly >
+    <input type="text" ng-if="isDelete" id="phoneNumber" ng-model="phoneData.number" readonly>
   </p>
   <p class="buttons">
     <a href="" ng-if="isAdd" ng-click="add(phoneData)" class="button">Add</a>
