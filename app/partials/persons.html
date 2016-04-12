@@ -1,0 +1,14 @@
+<a ui-sref="newPerson" class="btn-primary btn-lg nodecoration">Add New Person</a>
+<table class="table persontable">
+    <tr>
+        <td><h3>All Persons</h3></td>
+        <td></td>
+    </tr>
+    <tr ng-repeat="person in persons">
+        <td>{{person.title}}</td>
+        <td>
+            <a class="btn btn-primary btn-xs" ui-sref="viewPerson({id:person._id})">View</a>
+            <a class="btn btn-danger btn-xs"  ng-click="deletePerson(person)">Delete</a>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,25 @@
+<table class="table persontable">
+    <tr>
+        <td><h3>Details for {{person.title}}</h3></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Person Title</td>
+        <td>{{person.title}}</td>
+    </tr>
+    <tr>
+        <td>Director</td>
+        <td>{{person.director}}</td>
+    </tr>
+    <tr>
+        <td>Release Year</td>
+        <td>{{person.releaseYear}}</td>
+    </tr>
+    <tr>
+        <td>Person Genre</td>
+        <td>{{person.genre}}</td>
+    </tr>
+</table>
+<div>
+    <a class="btn btn-primary btn-xs" ui-sref="editPerson({id:person._id})">Edit</a>
+</div>

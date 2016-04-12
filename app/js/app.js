@@ -1,42 +1,27 @@
-'use strict';
+/**
+ * .
+ */
 
-var app = angular.module('app', [
-    'ngRoute',
-    'ngResource',
-    'ui.bootstrap.pagination'
-]);
+angular.module('personApp',['ui.router','ngResource','personApp.controllers','personApp.services']);
 
-app
-    .constant('baseSrvcUrl', 'http://localhost:3000');
-
-app.config(function ($routeProvider) {
-    $routeProvider
-        .when('/', {
-            templateUrl: 'templates/home.html',
-            controller: 'HomeCtrl'
-        })
-        .when('/persons', {
-            templateUrl: 'templates/persons.html',
-            controller: 'personsCtrl'
-        })
-        .when('/addPerson', {
-            templateUrl: 'templates/create-update-delete-person.html',
-            controller: 'CreateUpdateDeletePersonCtrl'
-        })
-        .otherwise(
-            {redirectTo: '/'}
-        )
-    ;
-});
-
-app.run(function ($rootScope, $location) {
-    $rootScope.$on('$locationChangeStart', function (event) {
-        /*if (((($location.path().indexOf("/add") != -1) || ($location.path().indexOf("/persons") != -1)
-                || ($location.path().indexOf("/edit") != -1) || ($location.path().indexOf("/delete") != -1)
-            ) && !authSrvc.isLoggedIn()) ||
-            (($location.path().indexOf("/login") != -1) && authSrvc.isLoggedIn())) {
-            // Authorization check: anonymous site visitors cannot access user routes
-            $location.path("/");
-        }*/
+angular.module('personApp').config(function($stateProvider,$httpProvider){
+    $stateProvider.state('persons',{
+        url:'/persons',
+        templateUrl:'partials/persons.html',
+        controller:'PersonListController'
+    }).state('viewPerson',{
+       url:'/persons/:id/view',
+       templateUrl:'partials/person-view.html',
+       controller:'PersonViewController'
+    }).state('newPerson',{
+        url:'/persons/new',
+        templateUrl:'partials/person-add.html',
+        controller:'PersonCreateController'
+    }).state('editPerson',{
+        url:'/persons/:id/edit',
+        templateUrl:'partials/person-edit.html',
+        controller:'PersonEditController'
     });
+}).run(function($state){
+   $state.go('persons');
 });
