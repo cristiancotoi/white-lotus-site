@@ -2,16 +2,24 @@
  * .
  */
 
-angular.module('personApp.services',[]).factory('Person',function($resource){
-    //return $resource('http://personapp-13434.onmodulus.net/api/persons/:id',{id:'@_id'},{
-    //return $resource('http://personapp-sitepointdemos.rhcloud.com/api/persons/:id',{id:'@_id'},{
-    return $resource('http://localhost:8000/api/persons/:id',{id:'@_id'},{
-        update: {
-            method: 'PUT'
+angular
+    .module('personApp.services', [])
+    .factory('Person', function ($resource) {
+        return $resource('http://cristian-pc:8000/api/persons/:id', {id: '@_id'}, {
+            update: {
+                method: 'PUT'
+            }
+        });
+    })
+    .factory('PSquare', function ($resource) {
+        return $resource('http://cristian-pc:8000/api/psquare/:id', {id: '@_id'}, {
+            update: {
+                method: 'PUT'
+            }
+        });
+    })
+    .service('popupService', function ($window) {
+        this.showPopup = function (message) {
+            return $window.confirm(message);
         }
     });
-}).service('popupService',function($window){
-    this.showPopup=function(message){
-        return $window.confirm(message);
-    }
-});

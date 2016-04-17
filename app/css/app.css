@@ -12,3 +12,12 @@
 a.nodecoration{
     text-decoration:none;
 }
+
+.nav-wl {
+    padding: 15px;
+}
+
+#googleSignIn.nav-wl {
+    padding-top: 9px;
+    padding-bottom: 0px;
+}
