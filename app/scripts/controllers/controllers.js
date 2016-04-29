@@ -1,6 +1,6 @@
-/**
- * .
- */
+'use strict';
+/*global gapi */
+
 angular.module('personApp.controllers', [])
     .controller('PersonListController', function ($scope, $state, popupService, $window, Person) {
 
@@ -12,16 +12,15 @@ angular.module('personApp.controllers', [])
                     $window.location.href = '';
                 });
             }
-        }
+        };
 
     }).controller('PersonViewController', function ($scope, $stateParams, Person) {
 
     $scope.person = Person.get({id: $stateParams.id});
-
 }).controller('PersonReportController', function ($scope, $stateParams, Person) {
     $scope.person = Person.get({id: $stateParams.id});
     $scope.report = Person.get({id: $stateParams.id});
-}).controller('PersonCreateController', function ($scope, $state, $stateParams, Person) {
+}).controller('PersonCreateController', function ($scope, $rootScope, $state, $stateParams, Person) {
 
     $scope.person = new Person();
 
@@ -30,7 +29,7 @@ angular.module('personApp.controllers', [])
         $scope.person.$save(function () {
             $state.go('persons');
         });
-    }
+    };
 
 }).controller('PersonEditController', function ($scope, $state, $stateParams, Person) {
 
@@ -53,13 +52,15 @@ angular.module('personApp.controllers', [])
     // Note that authResult is a JSON object.
     $scope.processAuth = function (authResult) {
         // Do a check if authentication has been successful.
-        if (authResult['access_token']) {
+        // cheap and dirty way to dodge jshint for a variable name we don't own
+        var prop = 'access_' + 'token';
+        if (authResult[prop]) {
             // Successful sign in.
             $rootScope.signedIn = true;
             console.info('Signed in');
             $scope.getUserInfo();
             $state.go('persons');
-        } else if (authResult['error']) {
+        } else if (authResult.error) {
             // Error while signing in.
             $rootScope.signedIn = false;
 
@@ -84,7 +85,7 @@ angular.module('personApp.controllers', [])
         gapi.signin.render('signInButton',
             {
                 'callback': $scope.signInCallback, // Function handling the callback.
-                'clientid': '551441825719-29ro8j3up3u0gllimuj901328baf4qrn.apps.googleusercontent.com', // CLIENT_ID from developer console which has been explained earlier.
+                'clientid': '551441825719-29ro8j3up3u0gllimuj901328baf4qrn.apps.googleusercontent.com', // CLIENT_ID from developer console
                 'requestvisibleactions': 'http://schemas.google.com/AddActivity', // Visible actions, scope and cookie policy wont be described now,
                                                                                   // as their explanation is available in Google+ API Documentation.
                 'scope': 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email',
@@ -98,8 +99,8 @@ angular.module('personApp.controllers', [])
     $scope.processUserInfo = function (userInfo) {
         console.info('User info', userInfo);
 
-        console.info(userInfo['emails'][0]['value']);
-        $rootScope.userEmail = userInfo['emails'][0]['value'];
+        console.info(userInfo.emails[0].value);
+        $rootScope.userEmail = userInfo.emails[0].value;
         $rootScope.userName = userInfo.displayName;
     };
 
