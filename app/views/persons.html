@@ -7,7 +7,8 @@
     <tr ng-repeat="person in persons">
         <td>{{person.name}} {{person.surname}} ({{person.date.day}}/{{person.date.month}}/{{person.date.year}})</td>
         <td>
-            <a class="btn btn-primary btn-xs" ui-sref="viewPerson({id:person._id})">View</a>
+            <a class="btn btn-primary btn-xs" ui-sref="viewPersonReport({id:person._id})">Report</a>
+            <a class="btn btn-default btn-xs" ui-sref="viewPerson({id:person._id})">View</a>
             <a class="btn btn-danger btn-xs"  ng-click="deletePerson(person)">Delete</a>
         </td>
     </tr>

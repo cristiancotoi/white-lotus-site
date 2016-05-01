@@ -468,7 +468,8 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'ngconstant:development',
+//      'ngconstant:development',
+      'ngconstant:production',
       'wiredep',
       'concurrent:server',
       'postcss:server',

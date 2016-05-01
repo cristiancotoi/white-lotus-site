@@ -1,0 +1,43 @@
+<table class="table persontable">
+    <tr>
+        <td><h3>Report for {{person.name}} {{person.surname}}</h3></td>
+        <td>({{person.date.day}}/{{person.date.month}}/{{person.date.year}})</td>
+    </tr>
+    <tr>
+        <td>
+            <p>Pythagora's square</p>
+            <div class="table-responsive">
+            <table class="table-bordered">
+                <tr>
+                    <td>{{report.report.square[1]}}</td>
+                    <td>{{report.report.square[4]}}</td>
+                    <td>{{report.report.square[7]}}</td>
+                </tr>
+                <tr>
+                    <td>{{report.report.square[2]}}</td>
+                    <td>{{report.report.square[5]}}</td>
+                    <td>{{report.report.square[8]}}</td>
+                </tr>
+                <tr>
+                    <td>{{report.report.square[3]}}</td>
+                    <td>{{report.report.square[6]}}</td>
+                    <td>{{report.report.square[9]}}</td>
+                </tr>
+            </table>
+            </div>
+        </td>
+        <td>{{report}}</td>
+    </tr>
+    <tr>
+        <td>{{report.report.op}}</td>
+        <td>{{report.report.square}}</td>
+    </tr>
+    <tr>
+        <td>
+            {{opDesc}}
+        </td>
+    </tr>
+</table>
+<div>
+    <a class="btn btn-primary btn-xs" ui-sref="editPerson({id:person._id})">Edit</a>
+</div>

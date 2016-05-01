@@ -47,6 +47,11 @@ angular
         templateUrl: 'views/person-view.html',
         controller: 'PersonViewController'
       })
+      .state('viewPersonReport', {
+        url: '/persons/:id/report',
+        templateUrl: 'views/person-report.html',
+        controller: 'PersonReportController'
+      })
       .state('newPerson', {
         url: '/persons/new',
         templateUrl: 'views/person-add.html',
