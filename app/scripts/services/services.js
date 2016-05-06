@@ -12,15 +12,7 @@ angular
   })
   .factory('PSquare', function ($resource, ENV) {
     var apiUrl = ENV.apiEndpoint + '/api/psquare/:id';
-    return $resource(apiUrl, {id: '@_id'}/*, {
-      update: {
-        method: 'PUT'
-      }
-    }*/);
-  })
-  .factory('PSquareOp', function ($resource, ENV) {
-    var apiUrl = ENV.apiEndpoint + '/api/psquare-data/op';
-    return $resource(apiUrl);
+    return $resource(apiUrl, {id: '@_id'});
   })
   .service('popupService', function ($window) {
     this.showPopup = function (message) {

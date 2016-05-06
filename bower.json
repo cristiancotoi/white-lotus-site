@@ -30,7 +30,7 @@
     "angular-mocks": "^1.4.0"
   },
   "appPath": "app",
-  "moduleName": "whiteLotusSiteDemoApp",
+  "moduleName": "whiteLotusApp",
   "overrides": {
     "bootstrap": {
       "main": [

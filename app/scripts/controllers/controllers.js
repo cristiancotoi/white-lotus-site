@@ -19,10 +19,10 @@ angular
     .controller('PersonViewController', function ($scope, $stateParams, Person) {
         $scope.person = Person.get({id: $stateParams.id});
     })
-    .controller('PersonReportController', function ($scope, $stateParams, Person, PSquare, PSquareOp) {
+    .controller('PersonReportController', function ($scope, $stateParams, Person, PSquare) {
         $scope.person = Person.get({id: $stateParams.id});
         $scope.report = PSquare.get({id: $stateParams.id});
-        $scope.opDesc = PSquareOp.query();
+        console.log($scope.report);
     })
     .controller('PersonCreateController', function ($scope, $rootScope, $state, $stateParams, Person) {
 

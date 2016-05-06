@@ -2,20 +2,21 @@
 
 /**
  * @ngdoc overview
- * @name whiteLotusSiteDemoApp
+ * @name whiteLotusApp
  * @description
- * # whiteLotusSiteDemoApp
+ * # whiteLotusApp
  *
  * Main module of the application.
  */
 angular
-  .module('whiteLotusSiteDemoApp', [
+  .module('whiteLotusApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngSanitize',
     'ngTouch',
     'ui.router',
+    'whiteLotusApp',
     'personApp.controllers',
     'personApp.services'
   ])

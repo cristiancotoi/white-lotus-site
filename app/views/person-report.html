@@ -1,43 +1,58 @@
-<table class="table persontable">
+<table class="table persontable" ng-show="signedIn">
     <tr>
         <td><h3>Report for {{person.name}} {{person.surname}}</h3></td>
         <td>({{person.date.day}}/{{person.date.month}}/{{person.date.year}})</td>
     </tr>
     <tr>
         <td>
-            <p>Pythagora's square</p>
             <div class="table-responsive">
-            <table class="table-bordered">
-                <tr>
-                    <td>{{report.report.square[1]}}</td>
-                    <td>{{report.report.square[4]}}</td>
-                    <td>{{report.report.square[7]}}</td>
-                </tr>
-                <tr>
-                    <td>{{report.report.square[2]}}</td>
-                    <td>{{report.report.square[5]}}</td>
-                    <td>{{report.report.square[8]}}</td>
-                </tr>
-                <tr>
-                    <td>{{report.report.square[3]}}</td>
-                    <td>{{report.report.square[6]}}</td>
-                    <td>{{report.report.square[9]}}</td>
-                </tr>
-            </table>
+                <table class="table-bordered">
+                    <tr>
+                        <td>{{report.square[1]}}</td>
+                        <td>{{report.square[4]}}</td>
+                        <td>{{report.square[7]}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{report.square[2]}}</td>
+                        <td>{{report.square[5]}}</td>
+                        <td>{{report.square[8]}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{report.square[3]}}</td>
+                        <td>{{report.square[6]}}</td>
+                        <td>{{report.square[9]}}</td>
+                    </tr>
+                </table>
             </div>
         </td>
-        <td>{{report}}</td>
-    </tr>
-    <tr>
-        <td>{{report.report.op}}</td>
-        <td>{{report.report.square}}</td>
     </tr>
     <tr>
         <td>
-            {{opDesc}}
+            <h3>Numere operaționale</h3>
+            <div ng-repeat="op in report.op">
+                <h4>Număr operațional {{op.details.number}}</h4>
+                <span class="col-md-6 col-sm-12">
+                    <div class="col-md-1">
+                        <h4>{{op.number}}</h4>
+                    </div>
+                    <div class="col-md-10">
+                        <p>{{op.details.description}}</p>
+                    </div>
+                </span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h3>Nivel spiritual {{report.spiritLevel.level}}</h3>
+            <span class="col-md-12">
+                <p>{{report.spiritLevel.description}}</p>
+            </span>
         </td>
     </tr>
 </table>
+
+
 <div>
     <a class="btn btn-primary btn-xs" ui-sref="editPerson({id:person._id})">Edit</a>
 </div>

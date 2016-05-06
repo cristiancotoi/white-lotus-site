@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name whiteLotusSiteDemoApp.controller:AboutCtrl
+ * @name whiteLotusApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the whiteLotusSiteDemoApp
+ * Controller of the whiteLotusApp
  */
-angular.module('whiteLotusSiteDemoApp')
+angular.module('whiteLotusApp')
   .controller('AboutCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
