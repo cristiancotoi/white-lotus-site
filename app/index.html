@@ -46,18 +46,18 @@
             <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
                 <ul class="nav navbar-nav">
-                    <li class="active"><a ui-sref="home">Home</a></li>
-                    <li><a ui-sref="about">About</a></li>
-                    <li><a ui-sref="persons" ng-show="signedIn">Persons</a></li>
+                    <li class="active"><a ui-sref="home">Acasă</a></li>
+                    <li><a ui-sref="about">Despre aplicație</a></li>
+                    <li><a ui-sref="persons" ng-show="signedIn">Analize</a></li>
                     <li><a ui-sref="contact">Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right" ng-controller="SignInController">
-                    <li class="nav-wl" ng-show="signedIn">Welcome {{userName}}</li>
+                    <li class="nav-wl" ng-show="signedIn">Bun venit {{userName}}</li>
                     <li id="googleSignIn" class="nav-wl" ng-hide="signedIn">
                         <span id="signInButton">
                         </span>
                     </li>
-                    <li ng-show="signedIn"><a href="#" onclick="signOut();" ui-sref="persons">Sign out</a></li>
+                    <li ng-show="signedIn"><a href="#" onclick="signOut();" ui-sref="persons">Deconectează</a></li>
                 </ul>
             </div>
         </div>

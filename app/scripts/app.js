@@ -49,8 +49,8 @@ angular
         controller: 'PersonViewController'
       })
       .state('viewPersonReport', {
-        url: '/persons/:id/report',
-        templateUrl: 'views/person-report.html',
+        url: '/persons/:id/psihomatrix',
+        templateUrl: 'views/person-ps-report.html',
         controller: 'PersonReportController'
       })
       .state('newPerson', {
@@ -63,8 +63,8 @@ angular
         templateUrl: 'views/person-edit.html',
         controller: 'PersonEditController'
       });
-  })
-  .run(function ($state) {
+  });
+  /*.run(function ($state) {
       $state.go('home');
     }
-  );
+  );*/

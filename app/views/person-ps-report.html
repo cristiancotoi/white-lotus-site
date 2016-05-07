@@ -1,6 +1,7 @@
+<link rel="stylesheet" href="styles/psquare.css">
 <table class="table persontable" ng-show="signedIn">
     <tr>
-        <td><h3>Report for {{person.name}} {{person.surname}}</h3></td>
+        <td><h3>Analiză pentru {{person.name}} {{person.surname}}</h3></td>
         <td>({{person.date.day}}/{{person.date.month}}/{{person.date.year}})</td>
     </tr>
     <tr>
@@ -29,11 +30,11 @@
     <tr>
         <td>
             <h3>Numere operaționale</h3>
-            <div ng-repeat="op in report.op">
+            <div ng-repeat="op in report.op" class="col-md-6 col-sm-12">
                 <h4>Număr operațional {{op.details.number}}</h4>
-                <span class="col-md-6 col-sm-12">
+                <span>
                     <div class="col-md-1">
-                        <h4>{{op.number}}</h4>
+                        <div>{{op.number}}</div>
                     </div>
                     <div class="col-md-10">
                         <p>{{op.details.description}}</p>
@@ -50,9 +51,38 @@
             </span>
         </td>
     </tr>
+    <tr>
+        <td>
+            <h3>Destin {{report.destiny.number}}</h3>
+            <span class="col-md-12">
+                <p>{{report.destiny.description}}</p>
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h3>Vibrație interioară {{report['interior vibration'].number}}</h3>
+            <span class="col-md-12">
+                <p>
+                    <span class="col-md-4 col-sm-12"><strong>Planetă:</strong> {{report['interior vibration'].planet}}</span>
+                    <span class="col-md-8 col-sm-12"><strong>Calități:</strong> {{report['interior vibration'].qualities}}</span>
+                </p>
+                <p>{{report['interior vibration'].description}}</p>
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h3>Vibrație exterioară {{report['exterior vibration'].number}}</h3>
+            <span class="col-md-12">
+                <p>{{report['exterior vibration'].description}}</p>
+            </span>
+        </td>
+    </tr>
 </table>
 
 
 <div>
-    <a class="btn btn-primary btn-xs" ui-sref="editPerson({id:person._id})">Edit</a>
+    <a class="btn btn-primary btn-sm" ui-sref="editPerson({id:person._id})">Editează</a>
+    <a class="btn btn-primary btn-sm" ui-sref="persons">Înapoi</a>
 </div>

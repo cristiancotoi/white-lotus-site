@@ -1,15 +1,15 @@
-<a ui-sref="newPerson" class="btn-primary btn-lg nodecoration">Add New Person</a>
+<a ui-sref="newPerson" class="btn-primary btn-lg nodecoration">Adaugă o persoană</a>
 <table class="table persontable" ng-show="signedIn">
     <tr>
-        <td><h3>All Persons</h3></td>
+        <td><h3>Toate analizele</h3></td>
         <td></td>
     </tr>
     <tr ng-repeat="person in persons">
         <td>{{person.name}} {{person.surname}} ({{person.date.day}}/{{person.date.month}}/{{person.date.year}})</td>
         <td>
-            <a class="btn btn-primary btn-xs" ui-sref="viewPersonReport({id:person._id})">Report</a>
-            <a class="btn btn-default btn-xs" ui-sref="viewPerson({id:person._id})">View</a>
-            <a class="btn btn-danger btn-xs"  ng-click="deletePerson(person)">Delete</a>
+            <a class="btn btn-primary btn-xs" ui-sref="viewPersonReport({id:person._id})">Psihomatrice</a>
+            <a class="btn btn-default btn-xs" ui-sref="viewPerson({id:person._id})">Date</a>
+            <a class="btn btn-danger btn-xs"  ng-click="deletePerson(person)">Șterge</a>
         </td>
     </tr>
 </table>
