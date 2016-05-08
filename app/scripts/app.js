@@ -17,6 +17,7 @@ angular
     'ngTouch',
     'ui.router',
     'whiteLotusApp',
+    'personApp.signin',
     'personApp.controllers',
     'personApp.services'
   ])

@@ -1,5 +1,4 @@
 @import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css";
-@import "psquare.css";
 
 .browsehappy {
   margin: 0.2em 0;
@@ -83,4 +82,9 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+
+table td {
+    padding: 10px;
 }
