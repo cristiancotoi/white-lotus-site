@@ -7,7 +7,7 @@
 <div class="form-group">
     <label for="year" class="col-sm-2 control-label">Surname</label>
     <div class="col-sm-10">
-        <input type="text" ng-model="person.surname" ng-required="true" class="form-control" id="year" placeholder="Surname"/>
+        <input type="text" ng-model="person.surname" ng-required="true" class="form-control" id="surname" placeholder="Surname"/>
     </div>
 </div>
 <div class="form-group">
@@ -20,6 +20,15 @@
     </div>
     <div class="col-sm-4">
         <input type="number" ng-model="person.date.year" ng-required="true" class="form-control" id="year" placeholder="Year"/>
+    </div>
+</div>
+<div class="form-group">
+    <label for="hour" class="col-sm-2 control-label">Time</label>
+    <div class="col-sm-3">
+        <input type="number" ng-model="person.date.hour" class="form-control" id="hour" placeholder="Hour (24 hours format)"/>
+    </div>
+    <div class="col-sm-3">
+        <input type="number" ng-model="person.date.minutes" class="form-control" id="minutes" placeholder="Minutes"/>
     </div>
 </div>
 <div class="form-group">

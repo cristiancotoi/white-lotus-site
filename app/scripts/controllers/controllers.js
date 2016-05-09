@@ -67,6 +67,8 @@ angular
             $scope.person.analystId = $rootScope.userEmail;
             $scope.person.$save(function () {
                 $state.go('persons');
+            }, function(err) {
+                alert(err);
             });
         };
 

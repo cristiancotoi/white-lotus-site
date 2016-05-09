@@ -1,29 +1,33 @@
 <table class="table persontable" ng-show="signedIn">
     <tr>
-        <td><h3>Details for {{person.name}} {{person.surname}}</h3></td>
+        <td><h3>Detalii pentru {{person.name}} {{person.surname}}</h3></td>
     </tr>
     <tr>
-        <td>Name</td>
+        <td>Nume</td>
         <td>{{person.name}}</td>
     </tr>
     <tr>
-        <td>Surname</td>
+        <td>Prenume</td>
         <td>{{person.surname}}</td>
     </tr>
     <tr>
-        <td>Date</td>
+        <td>Dată de naștere</td>
         <td>{{person.date.day}}/{{person.date.month}}/{{person.date.year}}</td>
     </tr>
     <tr>
-        <td>Time zone</td>
+        <td>Oră</td>
+        <td>{{person.date.hour}}:{{person.date.minutes}}</td>
+    </tr>
+    <tr>
+        <td>Fus orar</td>
         <td>{{person.tz}}</td>
     </tr>
     <tr>
-        <td>Longitude</td>
+        <td>Longitudine</td>
         <td>{{person.longitude}}</td>
     </tr>
     <tr>
-        <td>Gender</td>
+        <td>Sex</td>
         <td>{{person.gender}}</td>
     </tr>
 </table>
