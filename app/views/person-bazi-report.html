@@ -1,0 +1,127 @@
+<div ng-show="signedIn">
+    <table class="table persontable">
+        <tr>
+            <td>
+                <h3>Analiză BaZi pentru {{person.name}} {{person.surname}}</h3>
+
+                <p>
+                    <span>({{person.date.day}}/{{person.date.month}}/{{person.date.year}})</span> &nbsp;
+                    <span>{{report.age}} ani</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td class="table-responsive">
+                <table class="table table-bordered table-striped table-hover">
+                    <caption>Harta personală</caption>
+                    <thead>
+                    <tr>
+                        <td>Oră</td>
+                        <td>Zi</td>
+                        <td>Lună</td>
+                        <td>An</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="hs hs-visible" style="background-color: {{st[c.hour.hs].colorCode}}">{{c.hour.hs}}
+                        </td>
+                        <td class="hs hs-visible" style="background-color: {{st[c.day.hs].colorCode}}">{{c.day.hs}}</td>
+                        <td class="hs hs-visible" style="background-color: {{st[c.month.hs].colorCode}}">
+                            {{c.month.hs}}
+                        </td>
+                        <td class="hs hs-visible" style="background-color: {{st[c.year.hs].colorCode}}">{{c.year.hs}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="eb" style="background-color: {{br[c.hour.eb].colorCode}}">{{c.hour.eb}}</td>
+                        <td class="eb" style="background-color: {{br[c.day.eb].colorCode}}">{{c.day.eb}}</td>
+                        <td class="eb" style="background-color: {{br[c.month.eb].colorCode}}">{{c.month.eb}}</td>
+                        <td class="eb" style="background-color: {{br[c.year.eb].colorCode}}">{{c.year.eb}}</td>
+                    </tr>
+                    <tr>
+                        <td class="hs hs-hidden" style="background-color: {{st[br[c.hour.eb].h1].colorCode}}">
+                            {{br[c.hour.eb].h1}}
+                        </td>
+                        <td class="hs hs-hidden" style="background-color: {{st[br[c.day.eb].h1].colorCode}}">
+                            {{br[c.day.eb].h1}}
+                        </td>
+                        <td class="hs hs-hidden" style="background-color: {{st[br[c.month.eb].h1].colorCode}}">
+                            {{br[c.month.eb].h1}}
+                        </td>
+                        <td class="hs hs-hidden" style="background-color: {{st[br[c.year.eb].h1].colorCode}}">
+                            {{br[c.year.eb].h1}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="hs hs-hidden" style="background-color: {{st[br[c.hour.eb].h2].colorCode}}">
+                            {{br[c.hour.eb].h2}}
+                        </td>
+                        <td class="hs hs-hidden" style="background-color: {{st[br[c.day.eb].h2].colorCode}}">
+                            {{br[c.day.eb].h2}}
+                        </td>
+                        <td class="hs hs-hidden" style="background-color: {{st[br[c.month.eb].h2].colorCode}}">
+                            {{br[c.month.eb].h2}}
+                        </td>
+                        <td class="hs hs-hidden" style="background-color: {{st[br[c.year.eb].h2].colorCode}}">
+                            {{br[c.year.eb].h2}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="hs hs-hidden" style="background-color: {{st[br[c.hour.eb].h3].colorCode}}">
+                            {{br[c.hour.eb].h3}}
+                        </td>
+                        <td class="hs hs-hidden" style="background-color: {{st[br[c.day.eb].h3].colorCode}}">
+                            {{br[c.day.eb].h3}}
+                        </td>
+                        <td class="hs hs-hidden" style="background-color: {{st[br[c.month.eb].h3].colorCode}}">
+                            {{br[c.month.eb].h3}}
+                        </td>
+                        <td class="hs hs-hidden" style="background-color: {{st[br[c.year.eb].h3].colorCode}}">
+                            {{br[c.year.eb].h3}}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <span ng-repeat="luck in l" class="col-md-3 col-sm-4 col-xs-6">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover">
+                        <tr class="hs-visible" style="background-color: {{st[luck.hs].colorCode}}">
+                            <td>{{luck.hs}}</td>
+                        </tr>
+
+                        <tr class="eb" style="background-color: {{br[luck.eb].colorCode}}">
+                            <td>{{luck.eb}}</td>
+                        </tr>
+
+                        <tr class="hs hs-hidden" style="background-color: {{st[br[luck.eb].h1].colorCode}}">
+                            <td>{{br[luck.eb].h1}}</td>
+                        </tr>
+
+                        <tr class="hs hs-hidden"
+                            style="background-color: {{st[br[luck.eb].h2].colorCode}}">
+                            <td ng-show="br[luck.eb].h2">{{br[luck.eb].h2}}</td>
+                        </tr>
+
+                        <tr class="hs hs-hidden"
+                            style="background-color: {{st[br[luck.eb].h3].colorCode}}">
+                            <td ng-show="br[luck.eb].h3">{{br[luck.eb].h3}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </span>
+            </td>
+        </tr>
+    </table>
+
+
+    <div>
+        <a class="btn btn-primary btn-sm" ui-sref="editPerson({id:person._id})">Editează</a>
+        <a class="btn btn-primary btn-sm" ui-sref="persons">Înapoi</a>
+    </div>
+
+</div>

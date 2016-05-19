@@ -5,7 +5,8 @@
         Lucruri un pic mai clare
     </p>
 
-    <p><a class="btn btn-lg btn-success" ui-sref="persons">Vezi analizele</a></p>
+    <p ng-show="signedIn"><a class="btn btn-lg btn-success" ui-sref="persons">Vezi analizele</a></p>
+    <p ng-hide="signedIn">Conectați-vă cu contul Google pentru a putea folosi aplicația</p>
 </div>
 
 <div class="row marketing">

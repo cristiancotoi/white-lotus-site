@@ -4,12 +4,18 @@
         <td><h3>Toate analizele</h3></td>
         <td></td>
     </tr>
-    <tr ng-repeat="person in persons">
+    <tr>
+        <input type="text" ng-model="search.name" placeholder="Nume">
+        <input type="text" ng-model="search.surname" placeholder="Prenume">
+    </tr>
+    <tr ng-repeat="person in persons | filter:search">
         <td>{{person.name}} {{person.surname}} ({{person.date.day}}/{{person.date.month}}/{{person.date.year}})</td>
         <td>
-            <a class="btn btn-primary btn-xs" ui-sref="viewPersonReport({id:person._id})">Psihomatrice</a>
+            <a class="btn btn-primary btn-xs" ui-sref="viewPSquareReport({id:person._id})">Psihomatrice</a>
+            <a class="btn btn-primary btn-xs" ui-sref="viewBaZiReport({id:person._id})">Ba Zi</a>
             <a class="btn btn-default btn-xs" ui-sref="viewPerson({id:person._id})">Detalii</a>
             <a class="btn btn-danger btn-xs"  ng-click="deletePerson(person)">Șterge</a>
         </td>
     </tr>
 </table>
+<p ng-hide="signedIn">Conectați-vă cu contul Google pentru a putea folosi aplicația</p>

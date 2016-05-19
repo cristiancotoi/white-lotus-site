@@ -1,17 +1,26 @@
 <div class="form-group">
-    <label for="title" class="col-sm-2 control-label">Name</label>
-    <div class="col-sm-10">
-        <input type="text" ng-model="person.name" ng-required="true" class="form-control" id="title" placeholder="Person Name"/>
-    </div>
-</div>
-<div class="form-group">
-    <label for="year" class="col-sm-2 control-label">Surname</label>
+    <label for="year" class="col-sm-2 control-label">
+        <span>Surname</span>
+        <span class="text-danger">(*)</span>
+    </label>
     <div class="col-sm-10">
         <input type="text" ng-model="person.surname" ng-required="true" class="form-control" id="surname" placeholder="Surname"/>
     </div>
 </div>
 <div class="form-group">
-    <label for="day" class="col-sm-2 control-label">Date of birth</label>
+    <label for="title" class="col-sm-2 control-label">
+        <span>Name</span>
+        <span class="text-danger">(*)</span>
+    </label>
+    <div class="col-sm-10">
+        <input type="text" ng-model="person.name" ng-required="true" class="form-control" id="title" placeholder="Person Name"/>
+    </div>
+</div>
+<div class="form-group">
+    <label for="day" class="col-sm-2 control-label">
+        <span>Date of birth</span>
+        <span class="text-danger">(*)</span>
+    </label>
     <div class="col-sm-3">
         <input type="number" ng-model="person.date.day" ng-required="true" class="form-control" id="day" placeholder="Day"/>
     </div>

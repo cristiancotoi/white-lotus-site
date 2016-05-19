@@ -49,10 +49,15 @@ angular
         templateUrl: 'views/person-view.html',
         controller: 'PersonViewController'
       })
-      .state('viewPersonReport', {
+      .state('viewPSquareReport', {
         url: '/persons/:id/psihomatrix',
         templateUrl: 'views/person-ps-report.html',
-        controller: 'PersonReportController'
+        controller: 'PersonPSquareReportController'
+      })
+      .state('viewBaZiReport', {
+        url: '/persons/:id/bazi',
+        templateUrl: 'views/person-bazi-report.html',
+        controller: 'PersonBaZiReportController'
       })
       .state('newPerson', {
         url: '/persons/new',
