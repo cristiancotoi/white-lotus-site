@@ -3,8 +3,10 @@
         <span>Surname</span>
         <span class="text-danger">(*)</span>
     </label>
+
     <div class="col-sm-10">
-        <input type="text" ng-model="person.surname" ng-required="true" class="form-control" id="surname" placeholder="Surname"/>
+        <input type="text" ng-model="person.surname" ng-required="true" class="form-control" id="surname"
+               placeholder="Surname"/>
     </div>
 </div>
 <div class="form-group">
@@ -12,8 +14,10 @@
         <span>Name</span>
         <span class="text-danger">(*)</span>
     </label>
+
     <div class="col-sm-10">
-        <input type="text" ng-model="person.name" ng-required="true" class="form-control" id="title" placeholder="Person Name"/>
+        <input type="text" ng-model="person.name" ng-required="true" class="form-control" id="title"
+               placeholder="Person Name"/>
     </div>
 </div>
 <div class="form-group">
@@ -21,37 +25,58 @@
         <span>Date of birth</span>
         <span class="text-danger">(*)</span>
     </label>
+
     <div class="col-sm-3">
-        <input type="number" ng-model="person.date.day" ng-required="true" class="form-control" id="day" placeholder="Day"/>
+        <input type="number" ng-model="person.date.day" ng-required="true" class="form-control" id="day"
+               placeholder="Day"/>
     </div>
     <div class="col-sm-3">
-        <input type="number" ng-model="person.date.month" ng-required="true" class="form-control" id="month" placeholder="Month"/>
+        <input type="number" ng-model="person.date.month" ng-required="true" class="form-control" id="month"
+               placeholder="Month"/>
     </div>
     <div class="col-sm-4">
-        <input type="number" ng-model="person.date.year" ng-required="true" class="form-control" id="year" placeholder="Year"/>
+        <input type="number" ng-model="person.date.year" ng-required="true" class="form-control" id="year"
+               placeholder="Year"/>
     </div>
 </div>
 <div class="form-group">
     <label for="hour" class="col-sm-2 control-label">Time</label>
+
     <div class="col-sm-3">
-        <input type="number" ng-model="person.date.hour" class="form-control" id="hour" placeholder="Hour (24 hours format)"/>
+        <input type="number" ng-model="person.date.hour" class="form-control" id="hour"
+               placeholder="Hour (24 hours format)"/>
     </div>
     <div class="col-sm-3">
         <input type="number" ng-model="person.date.minutes" class="form-control" id="minutes" placeholder="Minutes"/>
     </div>
 </div>
 <div class="form-group">
-    <label for="tz" class="col-sm-2 control-label">Time Zone</label>
-    <div class="col-sm-4">
+    <label for="tz" class="col-sm-2 control-label">Fus orar</label>
+
+    <div class="col-sm-2">
         <input type="number" ng-model="person.tz" class="form-control" id="tz" placeholder="TZ"/>
     </div>
-    <label for="longitude" class="col-sm-2 control-label">Longitude</label>
-    <div class="col-sm-4">
-        <input type="number" ng-model="person.longitude" class="form-control" id="longitude" placeholder="Longitude"/>
+    <label for="dst" class="col-sm-2 control-label">Ora de vară activă</label>
+    <!--<div class="col-sm-4">
+        <input type="number" ng-model="person.dst_active_at_birth" class="form-control" id="dst" placeholder="Ora de vara"/>
+    </div>-->
+    <div class="col-sm-2">
+        <select ng-model="person.dst_active_at_birth" ng-required="false" class="form-control" id="dst"
+                placeholder="Gender">
+            <option value="true">Da</option>
+            <option value="false">Nu</option>
+        </select>
+    </div>
+    <label for="longitude" class="col-sm-2 control-label">Longitudine</label>
+
+    <div class="col-sm-2">
+        <input type="number" ng-model="person.longitude" min="-360" max="360" class="form-control" id="longitude"
+               placeholder="Longitude" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01"/>
     </div>
 </div>
 <div class="form-group">
     <label for="plot" class="col-sm-2 control-label">Gender</label>
+
     <div class="col-sm-3">
         <select ng-model="person.gender" ng-required="true" class="form-control" id="plot" placeholder="Gender">
             <option value="M">Male</option>

@@ -5,8 +5,13 @@
                 <h3>Analiză BaZi pentru {{person.name}} {{person.surname}}</h3>
 
                 <p>
-                    <span>({{person.date.day}}/{{person.date.month}}/{{person.date.year}})</span> &nbsp;
+                    <span>Născut: {{person.date.day}}/{{person.date.month}}/{{person.date.year}} {{person.date.hour}}:{{person.date.minutes}}</span> &nbsp;
                     <span>{{report.age}} ani</span>
+                </p>
+
+                <p>
+                    <span>Data astrologică: </span>
+                    <span>{{a.day}}/{{a.month}}/{{a.year}} {{a.hour_int}}:{{a.minute}}</span> &nbsp;
                 </p>
             </td>
         </tr>
@@ -102,14 +107,18 @@
                             <td>{{br[luck.eb].h1}}</td>
                         </tr>
 
-                        <tr class="hs hs-hidden"
+                        <tr class="hs hs-hidden" ng-show="br[luck.eb].h2"
                             style="background-color: {{st[br[luck.eb].h2].colorCode}}">
-                            <td ng-show="br[luck.eb].h2">{{br[luck.eb].h2}}</td>
+                            <td>{{br[luck.eb].h2}}</td>
                         </tr>
 
-                        <tr class="hs hs-hidden"
+                        <tr class="hs hs-hidden" ng-hide="br[luck.eb].h2">
+                            <td>{{br[luck.eb].h2}}</td>
+                        </tr>
+
+                        <tr class="hs hs-hidden" ng-show="br[luck.eb].h3"
                             style="background-color: {{st[br[luck.eb].h3].colorCode}}">
-                            <td ng-show="br[luck.eb].h3">{{br[luck.eb].h3}}</td>
+                            <td>{{br[luck.eb].h3}}</td>
                         </tr>
                     </table>
                 </div>

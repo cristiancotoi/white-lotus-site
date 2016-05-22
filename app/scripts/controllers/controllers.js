@@ -67,15 +67,22 @@ angular
             .then(function(report){
                 $scope.c = report.detailedChart;
                 $scope.l = report.chart.luck;
+                $scope.a = report.chart.astro;
                 $scope.ph = report.phases;
                 $scope.st = report.heavenlyStems;
                 $scope.br = report.earthlyBranches;
+
+                $scope.t = {
+                    hour: Math.floor($scope.a.hour),
+                    minute: $scope.a.minute
+                };
 
                 for(var pillar = 0; pillar < Object.keys($scope.c); pillar++) {
                     $scope.c(pillar).hidStems = report.chart.chart.hidStems;
                 }
 
                 console.log($scope.c);
+                console.log($scope.a);
             });
     })
     .controller('PersonCreateController', function ($scope, $rootScope, $state, $stateParams, Person) {
