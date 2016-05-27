@@ -55,16 +55,38 @@ angular
     })
     .controller('PersonPSquareReportController', function ($scope, $stateParams, Person, PSquare) {
         $scope.person = Person.get({id: $stateParams.id});
-        $scope.report = PSquare
-            .get({id: $stateParams.id});
-        /*console.log($scope.person);
-         console.log($scope.report);*/
+        PSquare
+            .get({id: $stateParams.id})
+            .$promise
+            .then(function (report) {
+                var square = report.square;
+
+                $scope.s = square;
+                $scope.op = report.op;
+
+                $scope.sl = report.spiritLevel;
+                $scope.d = report.destiny;
+                $scope.iv = report['interior vibration'];
+                $scope.ev = report['exterior vibration'];
+
+
+                $scope.cv = report['cosmic vibration'];
+                $scope.sqm = [];
+                for (var i = 1; i < report.sqMeaning.length; i++) {
+                    $scope.sqm[i - 1] = {meaning: report.sqMeaning[i]};
+                    if (square[i].length) {
+                        $scope.sqm[i - 1].title = 'lui ' + square[i];
+                    } else {
+                        $scope.sqm[i - 1].title = 'lipsei cifrei ' + i;
+                    }
+                }
+            });
     })
     .controller('PersonBaZiReportController', function ($scope, $stateParams, $q, Person, BaZi) {
         $scope.person = Person.get({id: $stateParams.id});
         BaZi.get({id: $stateParams.id})
             .$promise
-            .then(function(report){
+            .then(function (report) {
                 $scope.c = report.detailedChart;
                 $scope.l = report.chart.luck;
                 $scope.a = report.chart.astro;
@@ -77,7 +99,7 @@ angular
                     minute: $scope.a.minute
                 };
 
-                for(var pillar = 0; pillar < Object.keys($scope.c); pillar++) {
+                for (var pillar = 0; pillar < Object.keys($scope.c); pillar++) {
                     $scope.c(pillar).hidStems = report.chart.chart.hidStems;
                 }
 

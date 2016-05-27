@@ -13,19 +13,19 @@
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tr>
-                            <td>{{report.square[1]}}</td>
-                            <td>{{report.square[4]}}</td>
-                            <td>{{report.square[7]}}</td>
+                            <td>{{s[1]}}</td>
+                            <td>{{s[4]}}</td>
+                            <td>{{s[7]}}</td>
                         </tr>
                         <tr>
-                            <td>{{report.square[2]}}</td>
-                            <td>{{report.square[5]}}</td>
-                            <td>{{report.square[8]}}</td>
+                            <td>{{s[2]}}</td>
+                            <td>{{s[5]}}</td>
+                            <td>{{s[8]}}</td>
                         </tr>
                         <tr>
-                            <td>{{report.square[3]}}</td>
-                            <td>{{report.square[6]}}</td>
-                            <td>{{report.square[9]}}</td>
+                            <td>{{s[3]}}</td>
+                            <td>{{s[6]}}</td>
+                            <td>{{s[9]}}</td>
                         </tr>
                     </table>
                 </div>
@@ -35,54 +35,70 @@
             <td>
                 <h3>Numere operaționale</h3>
 
-                <div ng-repeat="op in report.op" class="col-md-6 col-sm-12">
-                    <h4>Număr operațional {{op.position}}</h4>
-                <span>
-                    <div class="col-md-1">
-                        <div>{{op.number}}</div>
-                    </div>
-                    <div class="col-md-10">
-                        <p>{{op.details.description}}</p>
-                    </div>
-                </span>
+                <div ng-repeat="o in op" class="col-md-6 col-sm-12">
+                    <h4>Număr operațional {{o.position}}</h4>
+                    <span>
+                        <div class="col-md-1">
+                            <div>{{o.number}}</div>
+                        </div>
+                        <div class="col-md-10">
+                            <p>{{o.details.description}}</p>
+                        </div>
+                    </span>
                 </div>
             </td>
         </tr>
         <tr>
             <td>
-                <h3>Nivel spiritual {{report.spiritLevel.level}}</h3>
-            <span class="col-md-12">
-                <p>{{report.spiritLevel.description}}</p>
-            </span>
+                <h3>Nivel spiritual {{sl.level}}</h3>
+                <span class="col-md-12">
+                    <p>{{sl.description}}</p>
+                </span>
             </td>
         </tr>
         <tr>
             <td>
-                <h3>Destin {{report.destiny.number}}</h3>
-            <span class="col-md-12">
-                <p>{{report.destiny.description}}</p>
-            </span>
+                <h3>Destin {{d.number}}</h3>
+                <span class="col-md-12">
+                    <p>{{d.description}}</p>
+                </span>
             </td>
         </tr>
         <tr>
             <td>
-                <h3>Vibrație interioară {{report['interior vibration'].number}}</h3>
-            <span class="col-md-12">
-                <p>
-                    <span
-                        class="col-md-4 col-sm-12"><strong>Planetă:</strong> {{report['interior vibration'].planet}}</span>
-                    <span class="col-md-8 col-sm-12"><strong>Calități:</strong> {{report['interior vibration'].qualities}}</span>
-                </p>
-                <p>{{report['interior vibration'].description}}</p>
-            </span>
+                <h3>Vibrație interioară {{iv.number}}</h3>
+                <span class="col-md-12">
+                    <p>
+                        <span
+                            class="col-md-4 col-sm-12"><strong>Planetă:</strong> {{iv.planet}}</span>
+                        <span class="col-md-8 col-sm-12"><strong>Calități:</strong> {{iv.qualities}}</span>
+                    </p>
+                    <p>{{iv.description}}</p>
+                </span>
             </td>
         </tr>
         <tr>
             <td>
-                <h3>Vibrație exterioară {{report['exterior vibration'].number}}</h3>
-            <span class="col-md-12">
-                <p>{{report['exterior vibration'].description}}</p>
-            </span>
+                <h3>Vibrație exterioară {{ev.number}}</h3>
+                <span class="col-md-12">
+                    <p>{{ev.description}}</p>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Vibrație cosmică {{cv.number}}</h3>
+                <span class="col-md-12">
+                    <p>{{cv.description}}</p>
+                </span>
+            </td>
+        </tr>
+        <tr ng-repeat="sm in sqm" >
+            <td>
+                <h3>Semnificația {{sm.title}}</h3>
+                <span class="col-md-12">
+                    <p ng-repeat="dm in sm.meaning">{{dm.description}}</p>
+                </span>
             </td>
         </tr>
     </table>
