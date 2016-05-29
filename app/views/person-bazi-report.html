@@ -1,4 +1,10 @@
 <div ng-show="signedIn">
+    <div>
+        <a class="btn btn-primary btn-sm" ui-sref="viewPSquareReport({id:person._id})">Psihomatrice</a>
+        <a class="btn btn-primary btn-sm" ui-sref="editPerson({id:person._id})">Editează</a>
+        <a class="btn btn-primary btn-sm" ui-sref="persons">Înapoi</a>
+    </div>
+
     <table class="table persontable">
         <tr>
             <td>
@@ -127,10 +133,9 @@
         </tr>
     </table>
 
-
     <div>
+        <a class="btn btn-primary btn-sm" ui-sref="viewPSquareReport({id:person._id})">Psihomatrice</a>
         <a class="btn btn-primary btn-sm" ui-sref="editPerson({id:person._id})">Editează</a>
         <a class="btn btn-primary btn-sm" ui-sref="persons">Înapoi</a>
     </div>
-
 </div>

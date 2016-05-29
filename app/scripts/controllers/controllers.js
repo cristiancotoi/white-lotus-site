@@ -68,9 +68,8 @@ angular
                 $scope.d = report.destiny;
                 $scope.iv = report['interior vibration'];
                 $scope.ev = report['exterior vibration'];
-
-
                 $scope.cv = report['cosmic vibration'];
+
                 $scope.sqm = [];
                 for (var i = 1; i < report.sqMeaning.length; i++) {
                     $scope.sqm[i - 1] = {meaning: report.sqMeaning[i]};
@@ -80,6 +79,26 @@ angular
                         $scope.sqm[i - 1].title = 'lipsei cifrei ' + i;
                     }
                 }
+                $scope.comb = report['sq combos'];
+
+                $scope.ordLines = [
+                    '123', '456', '789',
+                    '147', '258', '369',
+                    '159', '357'
+                ];
+                $scope.l = report.lines;
+                $scope.lw = report.linesWeight;
+
+                $scope.priorities = report.priorities;
+                /*for (var key in $scope.lw) {
+                    if (!$scope.lw.hasOwnProperty(key)) {
+                        continue;
+                    }
+                    $scope.priorities.push($scope.lw[key]);
+                }*/
+
+                console.log(report);
+                console.log($scope.priorities);
             });
     })
     .controller('PersonBaZiReportController', function ($scope, $stateParams, $q, Person, BaZi) {
