@@ -1,4 +1,17 @@
 <div ng-show="signedIn">
+    <style>
+        .list-inline {
+            white-space:nowrap;
+        }
+        .luck-list
+        {
+            overflow-x:scroll;
+            overflow-y:hidden;
+            height:200px;
+            width:100%;
+            padding: 0 15px;
+        }
+    </style>
     <div>
         <a class="btn btn-primary btn-sm" ui-sref="viewPSquareReport({id:person._id})">Psihomatrice</a>
         <a class="btn btn-primary btn-sm" ui-sref="editPerson({id:person._id})">Editează</a>
@@ -129,6 +142,43 @@
                     </table>
                 </div>
             </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="luck-list">
+                <ul class="list-inline">
+                    <li ng-repeat="luck in l" class="col-md-3 col-sm-4 col-xs-6">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover">
+                                <tr class="hs-visible" style="background-color: {{st[luck.hs].colorCode}}">
+                                    <td>{{luck.hs}}</td>
+                                </tr>
+
+                                <tr class="eb" style="background-color: {{br[luck.eb].colorCode}}">
+                                    <td>{{luck.eb}}</td>
+                                </tr>
+
+                                <tr class="hs hs-hidden" style="background-color: {{st[br[luck.eb].h1].colorCode}}">
+                                    <td>{{br[luck.eb].h1}}</td>
+                                </tr>
+
+                                <tr class="hs hs-hidden" ng-show="br[luck.eb].h2"
+                                    style="background-color: {{st[br[luck.eb].h2].colorCode}}">
+                                    <td>{{br[luck.eb].h2}}</td>
+                                </tr>
+
+                                <tr class="hs hs-hidden" ng-hide="br[luck.eb].h2">
+                                    <td>{{br[luck.eb].h2}}</td>
+                                </tr>
+
+                                <tr class="hs hs-hidden" ng-show="br[luck.eb].h3"
+                                    style="background-color: {{st[br[luck.eb].h3].colorCode}}">
+                                    <td>{{br[luck.eb].h3}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                </ul>
             </td>
         </tr>
     </table>

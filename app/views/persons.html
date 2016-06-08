@@ -1,12 +1,14 @@
-<a ui-sref="newPerson" class="btn-primary btn-lg nodecoration">Adaugă o persoană</a>
+<div class='tall' ng-show="signedIn">
+    <a ui-sref="newPerson" class="btn-success btn-sm nodecoration">Adaugă o persoană</a>
+</div>
 <table class="table persontable" ng-show="signedIn">
     <tr>
         <td><h3>Toate analizele</h3></td>
         <td></td>
     </tr>
     <tr>
-        <input type="text" ng-model="search.name" placeholder="Nume">
-        <input type="text" ng-model="search.surname" placeholder="Prenume">
+        <input type="text" ng-model="search.name" placeholder="Caută nume">
+        <input type="text" ng-model="search.surname" placeholder="Caută prenume">
     </tr>
     <tr ng-repeat="person in persons | filter:search">
         <td>{{person.name}} {{person.surname}} ({{person.date.day}}/{{person.date.month}}/{{person.date.year}})</td>
@@ -14,7 +16,7 @@
             <a class="btn btn-primary btn-xs" ui-sref="viewPSquareReport({id:person._id})">Psihomatrice</a>
             <a class="btn btn-primary btn-xs" ui-sref="viewBaZiReport({id:person._id})">Ba Zi</a>
             <a class="btn btn-default btn-xs" ui-sref="viewPerson({id:person._id})">Detalii</a>
-            <a class="btn btn-danger btn-xs"  ng-click="deletePerson(person)">Șterge</a>
+            <a class="btn btn-danger btn-xs" ng-click="deletePerson(person)">Șterge</a>
         </td>
     </tr>
 </table>

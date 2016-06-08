@@ -102,3 +102,7 @@ body {
 .hs-hidden {
     font-size: small;
 }
+
+div.tall {
+    height: 30px;
+}
