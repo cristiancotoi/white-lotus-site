@@ -28,6 +28,16 @@ angular
             $http(request).then(
                 function successCallback(response) {
                     $scope.persons = response.data;
+                    $scope.orderOptions = [
+                        {"label": "Nume", "value": "name"},
+                        {"label": "Nume desc", "value": "-name"},
+                        {"label": "Prenume", "value": "surname"},
+                        {"label": "Prenume desc", "value": "-surname"},
+                        {"label": "An", "value": "date.year"},
+                        {"label": "An desc", "value": "-date.year"},
+                        {"label": "TZ", "value": "tz"}
+                    ];
+                    $scope.personsOrderBy = $scope.orderOptions[0].value;
                 }, function errorCallback(response) {
                     console.log(response);
                 });
@@ -90,12 +100,10 @@ angular
                 $scope.lw = report.linesWeight;
 
                 $scope.priorities = report.priorities;
-                /*for (var key in $scope.lw) {
-                    if (!$scope.lw.hasOwnProperty(key)) {
-                        continue;
-                    }
-                    $scope.priorities.push($scope.lw[key]);
-                }*/
+                console.log(report.lifeCycle);
+                console.log(report.lifeCycleDesc);
+                $scope.lc = report.lifeCycle;
+                $scope.lcd = report.lifeCycleDesc;
 
                 console.log(report);
                 console.log($scope.priorities);
@@ -108,10 +116,13 @@ angular
             .then(function (report) {
                 $scope.c = report.detailedChart;
                 $scope.l = report.chart.luck;
+                $scope.lStart = report.chart.startYear;
                 $scope.a = report.chart.astro;
                 $scope.ph = report.phases;
                 $scope.st = report.heavenlyStems;
                 $scope.br = report.earthlyBranches;
+
+                $scope.dm = report.dm;
 
                 $scope.t = {
                     hour: Math.floor($scope.a.hour),
@@ -121,9 +132,6 @@ angular
                 for (var pillar = 0; pillar < Object.keys($scope.c); pillar++) {
                     $scope.c(pillar).hidStems = report.chart.chart.hidStems;
                 }
-
-                console.log($scope.c);
-                console.log($scope.a);
             });
     })
     .controller('PersonCreateController', function ($scope, $rootScope, $state, $stateParams, Person) {

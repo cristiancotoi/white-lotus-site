@@ -106,3 +106,30 @@ body {
 div.tall {
     height: 30px;
 }
+
+.text-with-newlines {
+    white-space: pre-line;
+    text-indent: 2em;
+}
+
+.pillar {
+    display: inline-block;
+    padding: 6px;
+    vertical-align: top;
+    margin: 1px;
+}
+
+.pillars {
+    text-align: center;
+    display: inline-flex;
+}
+
+#luck_pillars .pillars {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+}
+
+.top-buffer {
+    margin-top: 20px;
+}

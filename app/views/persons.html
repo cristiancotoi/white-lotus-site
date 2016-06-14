@@ -9,8 +9,12 @@
     <tr>
         <input type="text" ng-model="search.name" placeholder="Caută nume">
         <input type="text" ng-model="search.surname" placeholder="Caută prenume">
+        <select name="repeatSelect" id="repeatSelect" ng-model="personsOrderBy">
+            <option value="">-- sortează --</option>
+            <option ng-repeat="option in orderOptions" value="{{option.value}}">{{option.label}}</option>
+        </select>
     </tr>
-    <tr ng-repeat="person in persons | filter:search">
+    <tr ng-repeat="person in persons | orderBy:personsOrderBy | filter:search">
         <td>{{person.name}} {{person.surname}} ({{person.date.day}}/{{person.date.month}}/{{person.date.year}})</td>
         <td>
             <a class="btn btn-primary btn-xs" ui-sref="viewPSquareReport({id:person._id})">Psihomatrice</a>

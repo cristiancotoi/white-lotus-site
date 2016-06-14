@@ -1,16 +1,6 @@
 <div ng-show="signedIn">
     <style>
-        .list-inline {
-            white-space:nowrap;
-        }
-        .luck-list
-        {
-            overflow-x:scroll;
-            overflow-y:hidden;
-            height:200px;
-            width:100%;
-            padding: 0 15px;
-        }
+
     </style>
     <div>
         <a class="btn btn-primary btn-sm" ui-sref="viewPSquareReport({id:person._id})">Psihomatrice</a>
@@ -24,7 +14,8 @@
                 <h3>Analiză BaZi pentru {{person.name}} {{person.surname}}</h3>
 
                 <p>
-                    <span>Născut: {{person.date.day}}/{{person.date.month}}/{{person.date.year}} {{person.date.hour}}:{{person.date.minutes}}</span> &nbsp;
+                    <span>Născut: {{person.date.day}}/{{person.date.month}}/{{person.date.year}} {{person.date.hour}}:{{person.date.minutes}}</span>
+                    &nbsp;
                     <span>{{report.age}} ani</span>
                 </p>
 
@@ -109,11 +100,17 @@
                 </table>
             </td>
         </tr>
-        <tr>
-            <td>
-            <span ng-repeat="luck in l" class="col-md-3 col-sm-4 col-xs-6">
+    </table>
+    <!--<tr>-->
+    <span id="luck_pillars">
+        <ul class="pillars">
+            <li ng-repeat="luck in l" class="col-md-3 col-sm-4 col-xs-6 pillar">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover">
+                        <tr class="">
+                            <td>{{luck.start}} - {{luck.end}}</td>
+                        </tr>
+
                         <tr class="hs-visible" style="background-color: {{st[luck.hs].colorCode}}">
                             <td>{{luck.hs}}</td>
                         </tr>
@@ -141,47 +138,19 @@
                         </tr>
                     </table>
                 </div>
-            </span>
-            </td>
-        </tr>
-        <tr>
-            <td class="luck-list">
-                <ul class="list-inline">
-                    <li ng-repeat="luck in l" class="col-md-3 col-sm-4 col-xs-6">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover">
-                                <tr class="hs-visible" style="background-color: {{st[luck.hs].colorCode}}">
-                                    <td>{{luck.hs}}</td>
-                                </tr>
+            </li>
+        </ul>
+    </span>
 
-                                <tr class="eb" style="background-color: {{br[luck.eb].colorCode}}">
-                                    <td>{{luck.eb}}</td>
-                                </tr>
-
-                                <tr class="hs hs-hidden" style="background-color: {{st[br[luck.eb].h1].colorCode}}">
-                                    <td>{{br[luck.eb].h1}}</td>
-                                </tr>
-
-                                <tr class="hs hs-hidden" ng-show="br[luck.eb].h2"
-                                    style="background-color: {{st[br[luck.eb].h2].colorCode}}">
-                                    <td>{{br[luck.eb].h2}}</td>
-                                </tr>
-
-                                <tr class="hs hs-hidden" ng-hide="br[luck.eb].h2">
-                                    <td>{{br[luck.eb].h2}}</td>
-                                </tr>
-
-                                <tr class="hs hs-hidden" ng-show="br[luck.eb].h3"
-                                    style="background-color: {{st[br[luck.eb].h3].colorCode}}">
-                                    <td>{{br[luck.eb].h3}}</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    </table>
+    <div>
+        <h1>Stăpânul Zilei {{dm.id}}</h1>
+        <div class="col-md-12 text-with-newlines">{{dm.description}}</div>
+        <div class="col-md-6 col-sm-12 bg-success top-buffer">{{dm.positive}}</div>
+        <div class="col-md-6 col-sm-12 bg-danger top-buffer">{{dm.negative}}</div>
+        <br>
+        <div class="col-md-6 col-sm-12 text-primary top-buffer"><strong>Calea către fericire:</strong> {{dm['path to happiness']}}</div>
+        <div class="col-md-6 col-sm-12 text-primary top-buffer"><strong>Fericirea:</strong> {{dm.happiness}}</div>
+    </div>
 
     <div>
         <a class="btn btn-primary btn-sm" ui-sref="viewPSquareReport({id:person._id})">Psihomatrice</a>

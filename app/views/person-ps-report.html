@@ -6,150 +6,140 @@
         <a class="btn btn-primary btn-sm" ui-sref="persons">Înapoi</a>
     </div>
 
-    <table class="table persontable">
-        <tr>
-            <td>
-                <h3>Analiză pentru {{person.name}} {{person.surname}}</h3>
+    <h3 class="text-primary">Analiză pentru {{person.name}} {{person.surname}}</h3>
 
-                <p>({{person.date.day}}/{{person.date.month}}/{{person.date.year}})</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <tr>
-                            <td>{{s[1]}}</td>
-                            <td>{{s[4]}}</td>
-                            <td>{{s[7]}}</td>
-                        </tr>
-                        <tr>
-                            <td>{{s[2]}}</td>
-                            <td>{{s[5]}}</td>
-                            <td>{{s[8]}}</td>
-                        </tr>
-                        <tr>
-                            <td>{{s[3]}}</td>
-                            <td>{{s[6]}}</td>
-                            <td>{{s[9]}}</td>
-                        </tr>
-                    </table>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h3>Numere operaționale</h3>
+    <p>({{person.date.day}}/{{person.date.month}}/{{person.date.year}})</p>
 
-                <div ng-repeat="o in op" class="col-md-6 col-sm-12">
-                    <h4>Număr operațional {{o.position}}</h4>
-                    <span>
-                        <div class="col-md-1">
-                            <div>{{o.number}}</div>
-                        </div>
-                        <div class="col-md-10">
-                            <p>{{o.details.description}}</p>
-                        </div>
-                    </span>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h3>Nivel spiritual {{sl.level}}</h3>
-                <span class="col-md-12">
-                    <p>{{sl.description}}</p>
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h3>Destin {{d.number}}</h3>
-                <span class="col-md-12">
-                    <p>{{d.description}}</p>
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h3>Vibrație interioară {{iv.number}}</h3>
-                <span class="col-md-12">
-                    <p>
-                        <span
-                            class="col-md-4 col-sm-12"><strong>Planetă:</strong> {{iv.planet}}</span>
-                        <span class="col-md-8 col-sm-12"><strong>Calități:</strong> {{iv.qualities}}</span>
-                    </p>
-                    <p>{{iv.description}}</p>
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h3>Vibrație exterioară {{ev.number}}</h3>
-                <span class="col-md-12">
-                    <p>{{ev.description}}</p>
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h3>Vibrație cosmică {{cv.number}}</h3>
-                <span class="col-md-12">
-                    <p>{{cv.description}}</p>
-                </span>
-            </td>
-        </tr>
-        <tr ng-repeat="sm in sqm" >
-            <td>
-                <h3>Semnificația {{sm.title}}</h3>
-                <span class="col-md-12">
-                    <p ng-repeat="dm in sm.meaning">{{dm.description}}</p>
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h3>Combinații prezente</h3>
-                <span class="col-md-12">
-                    <p ng-repeat="c in comb">{{c.description}}</p>
-                </span>
-            </td>
-        </tr>
-        <tr ng-repeat="lIndex in ordLines" >
-            <td>
-                <h3>{{l[lIndex].type}} {{l[lIndex].line}} - {{l[lIndex].name}}</h3>
-                <div>
-                    <span>{{l[lIndex].description}}</span>
-                </div>
-                <div>
-                    <span class="col-sm-6"><strong>Aspect:</strong> {{l[lIndex].wellbeing}}</span>
-                </div>
-                <div>
-                    <span ng-show="l[lIndex].verb" class="col-sm-6"><strong>Verb:</strong> {{l[lIndex].verb}}</span>
-                    <span ng-show="l[lIndex].level" class="col-sm-6"><strong>Nivel mental:</strong> {{l[lIndex].level}}</span>
-                </div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tr>
+                <td>{{s[1]}}</td>
+                <td>{{s[4]}}</td>
+                <td>{{s[7]}}</td>
+            </tr>
+            <tr>
+                <td>{{s[2]}}</td>
+                <td>{{s[5]}}</td>
+                <td>{{s[8]}}</td>
+            </tr>
+            <tr>
+                <td>{{s[3]}}</td>
+                <td>{{s[6]}}</td>
+                <td>{{s[9]}}</td>
+            </tr>
+        </table>
+    </div>
 
-                <div>
-                    <span><strong>Număr de cifre: {{lw[l[lIndex].line].weight.count}}</strong></span>
-                </div>
-                <div>
-                    <span ng-show="lw[l[lIndex].line].description">{{lw[l[lIndex].line].description}}</span>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h3>Treptele fericirii</h3>
-                <span class="col-md-12" ng-repeat="item in priorities | orderBy:'-weight'">
-                    <p>
-                        <strong>{{item.weight}}</strong>
-                        <span>({{item.number}}) {{item.title}}</span>
-                    </p>
-                </span>
-            </td>
-        </tr>
+    <h3 class="text-primary">Numere operaționale</h3>
 
-    </table>
+    <div ng-repeat="o in op" class="col-md-12 col-sm-12">
+        <h4 class="text-primary">Număr operațional {{o.position}}</h4>
+        <span>
+            <div class="col-md-1">
+                <div>{{o.number}}</div>
+            </div>
+            <div class="col-md-10">
+                <p class="text-with-newlines">{{o.details.description}}</p>
+            </div>
+        </span>
+    </div>
+    <h2 class="bg-primary">Vibrații</h2>
+
+    <div>
+        <h3 class="text-primary">Nivel spiritual {{sl.level}}</h3>
+        <span class="col-md-12">
+            <p class="text-with-newlines">{{sl.description}}</p>
+        </span>
+    </div>
+    <div>
+        <h3 class="text-primary">Destin {{d.number}}</h3>
+        <span class="col-md-12">
+            <p class="text-with-newlines">{{d.description}}</p>
+        </span>
+    </div>
+    <div>
+        <h3 class="text-primary">Vibrație interioară {{iv.number}}</h3>
+        <span class="col-md-12">
+            <p>
+                <span
+                    class="col-md-4 col-sm-12"><strong>Planetă:</strong> {{iv.planet}}</span>
+                <span class="col-md-8 col-sm-12"><strong>Calități:</strong> {{iv.qualities}}</span>
+            </p>
+            <p class="text-with-newlines">{{iv.description}}</p>
+        </span>
+    </div>
+    <div>
+        <h3 class="text-primary">Vibrație exterioară {{ev.number}}</h3>
+        <span class="col-md-12">
+            <p class="text-with-newlines">{{ev.description.trim()}}</p>
+        </span>
+    </div>
+    <div>
+        <h3 class="text-primary">Vibrație cosmică {{cv.number}}</h3>
+        <span class="col-md-12">
+            <p class="text-with-newlines">{{cv.description}}</p>
+        </span>
+    </div>
+    <h2 class="bg-primary">Semnificațiile căsuțelor din pătrat</h2>
+
+    <div ng-repeat="sm in sqm">
+        <h3 class="text-primary">Semnificația {{sm.title}}</h3>
+        <span class="col-md-12">
+            <p ng-repeat="dm in sm.meaning" class="text-with-newlines">{{dm.description}}</p>
+        </span>
+    </div>
+    <h3 class="text-primary">Combinații prezente</h3>
+    <span class="col-md-12">
+        <p ng-repeat="c in comb" class="text-with-newlines">{{c.description}}</p>
+    </span>
+
+    <h2 class="bg-primary">Liniile din pătrat</h2>
+
+    <div ng-repeat="lIndex in ordLines">
+        <h3 class="text-primary">{{l[lIndex].type}} {{l[lIndex].line}} - {{l[lIndex].name}}</h3>
+
+        <div>
+            <span class="text-with-newlines">{{l[lIndex].description}}</span>
+        </div>
+        <div>
+            <span class="col-sm-6"><strong>Aspect:</strong> {{l[lIndex].wellbeing}}</span>
+        </div>
+        <div>
+            <span ng-show="l[lIndex].verb" class="col-sm-6"><strong>Verb:</strong> {{l[lIndex].verb}}</span>
+            <span ng-show="l[lIndex].level" class="col-sm-6"><strong>Nivel mental:</strong> {{l[lIndex].level}}</span>
+        </div>
+
+        <div>
+            <span><strong>Număr de cifre: {{lw[l[lIndex].line].weight.count}}</strong></span>
+        </div>
+        <div>
+            <span ng-show="lw[l[lIndex].line].description" class="text-with-newlines">
+                {{lw[l[lIndex].line].description}}
+            </span>
+        </div>
+    </div>
+    <h2 class="bg-primary">Treptele fericirii</h2>
+    <span class="col-md-12" ng-repeat="item in priorities | orderBy:'-weight'">
+        <p>
+            <strong>{{item.weight}}</strong>
+            <span>({{item.number}}) {{item.title}}</span>
+        </p>
+    </span>
+
+    <div>
+        <h2 class="bg-primary">Perioadele vieții</h2>
+        <span class="col-md-12" ng-repeat="item in lc">
+            <h4>
+                Perioada {{item.start}} - {{item.end}}
+            </h4>
+            <p>
+                <strong>Numărul {{item.number}}</strong>
+            </p>
+            <p>
+                <span class="text-with-newlines">{{lcd[item.number].description}}</span>
+            </p>
+        </span>
+    </div>
 
 
     <div>
