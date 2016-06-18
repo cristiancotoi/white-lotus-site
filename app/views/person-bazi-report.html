@@ -1,4 +1,4 @@
-<div ng-show="signedIn">
+<!--<div ng-show="signedIn">-->
     <style>
 
     </style>
@@ -14,14 +14,15 @@
                 <h3>Analiză BaZi pentru {{person.name}} {{person.surname}}</h3>
 
                 <p>
-                    <span>Născut: {{person.date.day}}/{{person.date.month}}/{{person.date.year}} {{person.date.hour}}:{{person.date.minutes}}</span>
+                    <span>Născut: {{person.date.day}}/{{person.date.month}}/{{person.date.year}}</span><span ng-show="person.date.hour"> {{person.date.hour}}:{{person.date.minutes}}</span>
                     &nbsp;
-                    <span>{{report.age}} ani</span>
+                    <span>{{age}} ani</span>
                 </p>
 
                 <p>
                     <span>Data astrologică: </span>
-                    <span>{{a.day}}/{{a.month}}/{{a.year}} {{a.hour_int}}:{{a.minute}}</span> &nbsp;
+                    <span ng-show="person.date.hour">{{a.day}}/{{a.month}}/{{a.year}} {{a.hour_int}}:{{a.minute}}</span>
+                    <span ng-hide="person.date.hour">necunoscută. Adăugați ora nașterii, longitudinea și fusul orar.</span>
                 </p>
             </td>
         </tr>
@@ -45,7 +46,7 @@
                         <td class="hs hs-visible" style="background-color: {{st[c.month.hs].colorCode}}">
                             {{c.month.hs}}
                         </td>
-                        <td class="hs hs-visible" style="background-color: {{st[c.year.hs].colorCode}}">{{c.year.hs}}
+                        <td class="hs hs-visible" style="background-color:{{st[c.year.hs].colorCode}}">{{c.year.hs}}
                         </td>
                     </tr>
                     <tr>
@@ -142,7 +143,7 @@
         </ul>
     </span>
 
-    <div>
+    <div class="col-sm-12">
         <h1>Stăpânul Zilei {{dm.id}}</h1>
         <div class="col-md-12 text-with-newlines">{{dm.description}}</div>
         <div class="col-md-6 col-sm-12 bg-success top-buffer">{{dm.positive}}</div>
@@ -152,9 +153,16 @@
         <div class="col-md-6 col-sm-12 text-primary top-buffer"><strong>Fericirea:</strong> {{dm.happiness}}</div>
     </div>
 
+    <div class="col-sm-12">
+        <h1 class="bg-primary">Puterea zeilor {{dm.id}}</h1>
+        <div ng-repeat="stName in ordStems">
+            <strong style="background-color:{{st[stName].colorCode}}">{{stName}}</strong>{{stScores[stName].total}}
+        </div>
+    </div>
+
     <div>
         <a class="btn btn-primary btn-sm" ui-sref="viewPSquareReport({id:person._id})">Psihomatrice</a>
         <a class="btn btn-primary btn-sm" ui-sref="editPerson({id:person._id})">Editează</a>
         <a class="btn btn-primary btn-sm" ui-sref="persons">Înapoi</a>
     </div>
-</div>
+<!--</div>-->

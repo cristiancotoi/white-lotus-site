@@ -29,13 +29,13 @@ angular
                 function successCallback(response) {
                     $scope.persons = response.data;
                     $scope.orderOptions = [
-                        {"label": "Nume", "value": "name"},
-                        {"label": "Nume desc", "value": "-name"},
-                        {"label": "Prenume", "value": "surname"},
-                        {"label": "Prenume desc", "value": "-surname"},
-                        {"label": "An", "value": "date.year"},
-                        {"label": "An desc", "value": "-date.year"},
-                        {"label": "TZ", "value": "tz"}
+                        {label: 'Nume', value: 'name'},
+                        {label: 'Nume desc', value: '-name'},
+                        {label: 'Prenume', value: 'surname'},
+                        {label: 'Prenume desc', value: '-surname'},
+                        {label: 'An', value: 'date.year'},
+                        {label: 'An desc', value: '-date.year'},
+                        {label: 'TZ', value: 'tz'}
                     ];
                     $scope.personsOrderBy = $scope.orderOptions[0].value;
                 }, function errorCallback(response) {
@@ -114,6 +114,8 @@ angular
         BaZi.get({id: $stateParams.id})
             .$promise
             .then(function (report) {
+                $scope.age = report.age;
+
                 $scope.c = report.detailedChart;
                 $scope.l = report.chart.luck;
                 $scope.lStart = report.chart.startYear;
@@ -122,12 +124,33 @@ angular
                 $scope.st = report.heavenlyStems;
                 $scope.br = report.earthlyBranches;
 
+                //console.log($scope.c);
+                //console.log($scope.st);
+                console.log($scope.br);
+
                 $scope.dm = report.dm;
+                $scope.stScores = report.godsScore;
 
                 $scope.t = {
                     hour: Math.floor($scope.a.hour),
                     minute: $scope.a.minute
                 };
+
+                $scope.ordStems = [
+                    '甲 L+', '乙 L-',
+                    '丙 F+', '丁 F-',
+                    '戊 P+', '己 P-',
+                    '庚 M+', '辛 M-',
+                    '壬 A+', '癸 A-'
+                ];
+
+                $scope.ordBranches = [
+                    '子 zǐ', '丑 chǒu',
+                    '寅 yín', '卯 mǎo', '辰 chén',
+                    '巳 sì', '午 wǔ', '未 wèi',
+                    '申 shēn', '酉 yǒu', '戌 xū',
+                    '亥 hài'
+                ];
 
                 for (var pillar = 0; pillar < Object.keys($scope.c); pillar++) {
                     $scope.c(pillar).hidStems = report.chart.chart.hidStems;
