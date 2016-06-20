@@ -194,44 +194,7 @@
                 {{rel.relation.eb3}}
             </span>
         </strong>
-
-        <div ng-repeat="mp in rel.matchingPillars" class="col-md-12 col-sm-12">
-            <div ng-repeat="p in mp" class="col-md-4 col-sm-4 col-xs-12">
-                <table class="table table-bordered table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <td class="lead text-primary">{{pillarRoNames[p.pillar]}}</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td class="hs hs-visible" style="background-color: {{st[c[p.pillar].hs].colorCode}}">
-                            {{c[p.pillar].hs}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="eb" style="background-color: {{br[c[p.pillar].eb].colorCode}}">{{c[p.pillar].eb}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="hs hs-hidden" style="background-color: {{st[br[c[p.pillar].eb].h1].colorCode}}">
-                            {{br[c[p.pillar].eb].h1}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="hs hs-hidden" style="background-color: {{st[br[c[p.pillar].eb].h2].colorCode}}">
-                            {{br[c[p.pillar].eb].h2}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="hs hs-hidden" style="background-color: {{st[br[c[p.pillar].eb].h3].colorCode}}">
-                            {{br[c[p.pillar].eb].h3}}
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        
         <p class="col-md-12 text-with-newlines" ng-if="rel.relation.categoryDescription">
             {{rel.relation.categoryDescription}}</p>
 
