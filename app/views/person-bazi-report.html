@@ -1,109 +1,114 @@
 <!--<div ng-show="signedIn">-->
-    <style>
+<style>
 
-    </style>
-    <div>
-        <a class="btn btn-primary btn-sm" ui-sref="viewPSquareReport({id:person._id})">Psihomatrice</a>
-        <a class="btn btn-primary btn-sm" ui-sref="editPerson({id:person._id})">Editează</a>
-        <a class="btn btn-primary btn-sm" ui-sref="persons">Înapoi</a>
-    </div>
+</style>
+<div>
+    <a class="btn btn-primary btn-sm" ui-sref="viewPSquareReport({id:person._id})">Psihomatrice</a>
+    <a class="btn btn-primary btn-sm" ui-sref="editPerson({id:person._id})">Editează</a>
+    <a class="btn btn-primary btn-sm" ui-sref="persons">Înapoi</a>
+</div>
 
-    <table class="table persontable">
-        <tr>
-            <td>
-                <h3>Analiză BaZi pentru {{person.name}} {{person.surname}}</h3>
+<table class="table persontable">
+    <tr>
+        <td>
+            <h3>Analiză BaZi pentru {{person.name}} {{person.surname}}</h3>
 
-                <p>
-                    <span>Născut: {{person.date.day}}/{{person.date.month}}/{{person.date.year}}</span><span ng-show="person.date.hour"> {{person.date.hour}}:{{person.date.minutes}}</span>
-                    &nbsp;
-                    <span>{{age}} ani</span>
-                </p>
+            <p>
+                <span>Născut: {{person.date.day}}/{{person.date.month}}/{{person.date.year}}</span><span
+                ng-show="person.date.hour"> {{person.date.hour}}:{{person.date.minutes}}</span>
+                &nbsp;
+                <span>{{age}} ani</span>
+            </p>
 
-                <p>
-                    <span>Data astrologică: </span>
-                    <span ng-show="person.date.hour">{{a.day}}/{{a.month}}/{{a.year}} {{a.hour_int}}:{{a.minute}}</span>
-                    <span ng-hide="person.date.hour">necunoscută. Adăugați ora nașterii, longitudinea și fusul orar.</span>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td class="table-responsive">
-                <table class="table table-bordered table-striped table-hover">
-                    <caption>Harta personală</caption>
-                    <thead>
-                    <tr>
-                        <td>Oră</td>
-                        <td>Zi</td>
-                        <td>Lună</td>
-                        <td>An</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td class="hs hs-visible" style="background-color: {{st[c.hour.hs].colorCode}}">{{c.hour.hs}}
-                        </td>
-                        <td class="hs hs-visible" style="background-color: {{st[c.day.hs].colorCode}}">{{c.day.hs}}</td>
-                        <td class="hs hs-visible" style="background-color: {{st[c.month.hs].colorCode}}">
-                            {{c.month.hs}}
-                        </td>
-                        <td class="hs hs-visible" style="background-color:{{st[c.year.hs].colorCode}}">{{c.year.hs}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="eb" style="background-color: {{br[c.hour.eb].colorCode}}">{{c.hour.eb}}</td>
-                        <td class="eb" style="background-color: {{br[c.day.eb].colorCode}}">{{c.day.eb}}</td>
-                        <td class="eb" style="background-color: {{br[c.month.eb].colorCode}}">{{c.month.eb}}</td>
-                        <td class="eb" style="background-color: {{br[c.year.eb].colorCode}}">{{c.year.eb}}</td>
-                    </tr>
-                    <tr>
-                        <td class="hs hs-hidden" style="background-color: {{st[br[c.hour.eb].h1].colorCode}}">
-                            {{br[c.hour.eb].h1}}
-                        </td>
-                        <td class="hs hs-hidden" style="background-color: {{st[br[c.day.eb].h1].colorCode}}">
-                            {{br[c.day.eb].h1}}
-                        </td>
-                        <td class="hs hs-hidden" style="background-color: {{st[br[c.month.eb].h1].colorCode}}">
-                            {{br[c.month.eb].h1}}
-                        </td>
-                        <td class="hs hs-hidden" style="background-color: {{st[br[c.year.eb].h1].colorCode}}">
-                            {{br[c.year.eb].h1}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="hs hs-hidden" style="background-color: {{st[br[c.hour.eb].h2].colorCode}}">
-                            {{br[c.hour.eb].h2}}
-                        </td>
-                        <td class="hs hs-hidden" style="background-color: {{st[br[c.day.eb].h2].colorCode}}">
-                            {{br[c.day.eb].h2}}
-                        </td>
-                        <td class="hs hs-hidden" style="background-color: {{st[br[c.month.eb].h2].colorCode}}">
-                            {{br[c.month.eb].h2}}
-                        </td>
-                        <td class="hs hs-hidden" style="background-color: {{st[br[c.year.eb].h2].colorCode}}">
-                            {{br[c.year.eb].h2}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="hs hs-hidden" style="background-color: {{st[br[c.hour.eb].h3].colorCode}}">
-                            {{br[c.hour.eb].h3}}
-                        </td>
-                        <td class="hs hs-hidden" style="background-color: {{st[br[c.day.eb].h3].colorCode}}">
-                            {{br[c.day.eb].h3}}
-                        </td>
-                        <td class="hs hs-hidden" style="background-color: {{st[br[c.month.eb].h3].colorCode}}">
-                            {{br[c.month.eb].h3}}
-                        </td>
-                        <td class="hs hs-hidden" style="background-color: {{st[br[c.year.eb].h3].colorCode}}">
-                            {{br[c.year.eb].h3}}
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-    </table>
-    <!--<tr>-->
-    <span id="luck_pillars">
+            <p>
+                <span>Data astrologică: </span>
+                <span ng-show="person.date.hour">{{a.day}}/{{a.month}}/{{a.year}} {{a.hour_int}}:{{a.minute}}</span>
+                <span ng-hide="person.date.hour">necunoscută. Adăugați ora nașterii, longitudinea și fusul orar.</span>
+            </p>
+
+            <p>
+                <span class="text-danger lead" ng-show="person.date.hour!=undefined&&person.tz==undefined">Nu ați specificat fusul orar, longitudinea sau ora de vară! Analiza poate fi incorectă!</span>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <caption>Harta personală</caption>
+                <thead>
+                <tr>
+                    <td class="lead text-primary">Oră</td>
+                    <td class="lead text-primary">Zi</td>
+                    <td class="lead text-primary">Lună</td>
+                    <td class="lead text-primary">An</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="hs hs-visible" style="background-color: {{st[c.hour.hs].colorCode}}">{{c.hour.hs}}
+                    </td>
+                    <td class="hs hs-visible" style="background-color: {{st[c.day.hs].colorCode}}">{{c.day.hs}}</td>
+                    <td class="hs hs-visible" style="background-color: {{st[c.month.hs].colorCode}}">
+                        {{c.month.hs}}
+                    </td>
+                    <td class="hs hs-visible" style="background-color:{{st[c.year.hs].colorCode}}">{{c.year.hs}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="eb" style="background-color: {{br[c.hour.eb].colorCode}}">{{c.hour.eb}}</td>
+                    <td class="eb" style="background-color: {{br[c.day.eb].colorCode}}">{{c.day.eb}}</td>
+                    <td class="eb" style="background-color: {{br[c.month.eb].colorCode}}">{{c.month.eb}}</td>
+                    <td class="eb" style="background-color: {{br[c.year.eb].colorCode}}">{{c.year.eb}}</td>
+                </tr>
+                <tr>
+                    <td class="hs hs-hidden" style="background-color: {{st[br[c.hour.eb].h1].colorCode}}">
+                        {{br[c.hour.eb].h1}}
+                    </td>
+                    <td class="hs hs-hidden" style="background-color: {{st[br[c.day.eb].h1].colorCode}}">
+                        {{br[c.day.eb].h1}}
+                    </td>
+                    <td class="hs hs-hidden" style="background-color: {{st[br[c.month.eb].h1].colorCode}}">
+                        {{br[c.month.eb].h1}}
+                    </td>
+                    <td class="hs hs-hidden" style="background-color: {{st[br[c.year.eb].h1].colorCode}}">
+                        {{br[c.year.eb].h1}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="hs hs-hidden" style="background-color: {{st[br[c.hour.eb].h2].colorCode}}">
+                        {{br[c.hour.eb].h2}}
+                    </td>
+                    <td class="hs hs-hidden" style="background-color: {{st[br[c.day.eb].h2].colorCode}}">
+                        {{br[c.day.eb].h2}}
+                    </td>
+                    <td class="hs hs-hidden" style="background-color: {{st[br[c.month.eb].h2].colorCode}}">
+                        {{br[c.month.eb].h2}}
+                    </td>
+                    <td class="hs hs-hidden" style="background-color: {{st[br[c.year.eb].h2].colorCode}}">
+                        {{br[c.year.eb].h2}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="hs hs-hidden" style="background-color: {{st[br[c.hour.eb].h3].colorCode}}">
+                        {{br[c.hour.eb].h3}}
+                    </td>
+                    <td class="hs hs-hidden" style="background-color: {{st[br[c.day.eb].h3].colorCode}}">
+                        {{br[c.day.eb].h3}}
+                    </td>
+                    <td class="hs hs-hidden" style="background-color: {{st[br[c.month.eb].h3].colorCode}}">
+                        {{br[c.month.eb].h3}}
+                    </td>
+                    <td class="hs hs-hidden" style="background-color: {{st[br[c.year.eb].h3].colorCode}}">
+                        {{br[c.year.eb].h3}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+</table>
+<!--<tr>-->
+<span id="luck_pillars">
         <ul class="pillars">
             <li ng-repeat="luck in l" class="col-md-3 col-sm-4 col-xs-6 pillar">
                 <div class="table-responsive">
@@ -143,26 +148,111 @@
         </ul>
     </span>
 
-    <div class="col-sm-12">
-        <h1>Stăpânul Zilei {{dm.id}}</h1>
-        <div class="col-md-12 text-with-newlines">{{dm.description}}</div>
+<div class="col-sm-12">
+    <h1 class="bg-primary">Stăpânul Zilei {{dm.id}}</h1>
+
+    <div class="col-md-12 text-with-newlines">{{dm.description}}</div>
+    <div class="col-md-12">
         <div class="col-md-6 col-sm-12 bg-success top-buffer">{{dm.positive}}</div>
         <div class="col-md-6 col-sm-12 bg-danger top-buffer">{{dm.negative}}</div>
-        <br>
-        <div class="col-md-6 col-sm-12 text-primary top-buffer"><strong>Calea către fericire:</strong> {{dm['path to happiness']}}</div>
+    </div>
+    <br>
+
+    <div class="col-md-12">
+        <div class="col-md-6 col-sm-12 text-primary top-buffer"><strong>Calea către fericire:</strong>
+            {{dm['path_to_happiness']}}
+        </div>
         <div class="col-md-6 col-sm-12 text-primary top-buffer"><strong>Fericirea:</strong> {{dm.happiness}}</div>
     </div>
+</div>
 
-    <div class="col-sm-12">
-        <h1 class="bg-primary">Puterea zeilor {{dm.id}}</h1>
-        <div ng-repeat="stName in ordStems">
-            <strong style="background-color:{{st[stName].colorCode}}">{{stName}}</strong>{{stScores[stName].total}}
+<div class="col-sm-12">
+    <h1 class="bg-primary">Puterea zeilor</h1>
+
+    <div ng-repeat="stName in ordStems">
+        <strong style="background-color:{{st[stName].colorCode}}">{{stName}}</strong>{{stScores[stName].total}}
+    </div>
+</div>
+
+<div class="col-sm-12">
+    <h1 class="bg-primary">Relații în hartă</h1>
+
+    <div ng-repeat="rel in brRelArray">
+        <h2 class="text-primary">
+            <span ng-hide="rel.relation.subcategory">{{rel.relation.category}}</span>
+            <span ng-show="rel.relation.subcategory">{{rel.relation.subcategory}}</span>
+        </h2>
+        <strong class="hs hs-visible"
+                style="background-color: {{br[rel.relation.eb1].colorCode}}">{{rel.relation.eb1}}</strong>
+        <strong ng-show="rel.relation.eb2"> -
+            <span class="hs hs-visible"
+                  style="background-color: {{br[rel.relation.eb2].colorCode}}">{{rel.relation.eb2}}
+            </span>
+        </strong>
+        <strong ng-show="rel.relation.eb3"> -
+            <span class="hs hs-visible" style="background-color: {{br[rel.relation.eb3].colorCode}}">
+                {{rel.relation.eb3}}
+            </span>
+        </strong>
+
+        <div ng-repeat="mp in rel.matchingPillars" class="col-md-12 col-sm-12">
+            <div ng-repeat="p in mp" class="col-md-4 col-sm-4 col-xs-12">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <td class="lead text-primary">{{pillarRoNames[p.pillar]}}</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="hs hs-visible" style="background-color: {{st[c[p.pillar].hs].colorCode}}">
+                            {{c[p.pillar].hs}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="eb" style="background-color: {{br[c[p.pillar].eb].colorCode}}">{{c[p.pillar].eb}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="hs hs-hidden" style="background-color: {{st[br[c[p.pillar].eb].h1].colorCode}}">
+                            {{br[c[p.pillar].eb].h1}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="hs hs-hidden" style="background-color: {{st[br[c[p.pillar].eb].h2].colorCode}}">
+                            {{br[c[p.pillar].eb].h2}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="hs hs-hidden" style="background-color: {{st[br[c[p.pillar].eb].h3].colorCode}}">
+                            {{br[c[p.pillar].eb].h3}}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
+        <p class="col-md-12 text-with-newlines" ng-if="rel.relation.categoryDescription">
+            {{rel.relation.categoryDescription}}</p>
 
-    <div>
-        <a class="btn btn-primary btn-sm" ui-sref="viewPSquareReport({id:person._id})">Psihomatrice</a>
-        <a class="btn btn-primary btn-sm" ui-sref="editPerson({id:person._id})">Editează</a>
-        <a class="btn btn-primary btn-sm" ui-sref="persons">Înapoi</a>
+        <p class="col-md-12 text-with-newlines" ng-if="rel.relation.subcategoryDescription">
+            {{rel.relation.subcategoryDescription}}</p>
+
+        <p class="col-md-12 text-with-newlines" ng-if="rel.relation.description">{{rel.relation.description}}</p>
+
+        <h3 ng-if="rel.relation.subcategorySolution||rel.relation.categorySolution">Soluție</h3>
+
+        <p class="col-md-12 text-with-newlines" ng-if="rel.relation.categorySolution">
+            {{rel.relation.categorySolution}}</p>
+
+        <p class="col-md-12 text-with-newlines" ng-if="rel.relation.subcategorySolution">
+            {{rel.relation.subcategorySolution}}</p>
     </div>
+</div>
+
+<div>
+    <a class="btn btn-primary btn-sm" ui-sref="viewPSquareReport({id:person._id})">Psihomatrice</a>
+    <a class="btn btn-primary btn-sm" ui-sref="editPerson({id:person._id})">Editează</a>
+    <a class="btn btn-primary btn-sm" ui-sref="persons">Înapoi</a>
+</div>
 <!--</div>-->

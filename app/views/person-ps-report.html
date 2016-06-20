@@ -85,7 +85,7 @@
             </span>
         </div>
     </div>
-    <div class="col-md-12">
+    <div ng-if="sqm" class="col-md-12">
         <h2 class="bg-primary">Semnificațiile căsuțelor din pătrat</h2>
 
         <div ng-repeat="sm in sqm">
@@ -100,7 +100,7 @@
         </span>
 
     </div>
-    <div class="col-md-12">
+    <div ng-if="l" class="col-md-12">
         <h2 class="bg-primary">Liniile din pătrat</h2>
 
         <div ng-repeat="lIndex in ordLines">
@@ -127,7 +127,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-12">
+    <div ng-if="priorities" class="col-md-12">
         <h2 class="bg-primary">Treptele fericirii</h2>
         <span class="col-md-12" ng-repeat="item in priorities | orderBy:'-weight'">
             <p>
@@ -136,7 +136,7 @@
             </p>
         </span>
     </div>
-    <div class="col-md-12">
+    <div ng-if="lc" class="col-md-12">
         <h2 class="bg-primary">Perioadele vieții</h2>
         <span class="col-md-12" ng-repeat="item in lc">
             <h4>

@@ -38,8 +38,8 @@ angular
                         {label: 'TZ', value: 'tz'}
                     ];
                     $scope.personsOrderBy = $scope.orderOptions[0].value;
-                }, function errorCallback(response) {
-                    console.log(response);
+                }, function errorCallback(error) {
+                    console.log(error);
                 });
         });
 
@@ -100,13 +100,8 @@ angular
                 $scope.lw = report.linesWeight;
 
                 $scope.priorities = report.priorities;
-                console.log(report.lifeCycle);
-                console.log(report.lifeCycleDesc);
                 $scope.lc = report.lifeCycle;
                 $scope.lcd = report.lifeCycleDesc;
-
-                console.log(report);
-                console.log($scope.priorities);
             });
     })
     .controller('PersonBaZiReportController', function ($scope, $stateParams, $q, Person, BaZi) {
@@ -124,16 +119,22 @@ angular
                 $scope.st = report.heavenlyStems;
                 $scope.br = report.earthlyBranches;
 
-                //console.log($scope.c);
-                //console.log($scope.st);
-                console.log($scope.br);
-
                 $scope.dm = report.dm;
                 $scope.stScores = report.godsScore;
 
                 $scope.t = {
                     hour: Math.floor($scope.a.hour),
                     minute: $scope.a.minute
+                };
+
+                $scope.brRelArray = report.branchRelations;
+
+                $scope.pillarRoNames = {
+                    year: 'An',
+                    month: 'Lună',
+                    day: 'Zi',
+                    hour: 'Oră',
+                    luck: 'Noroc'
                 };
 
                 $scope.ordStems = [
