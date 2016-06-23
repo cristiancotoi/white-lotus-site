@@ -133,3 +133,7 @@ div.tall {
 .top-buffer {
     margin-top: 20px;
 }
+
+li.pillar[currentluck="true"] {
+    border: solid 1px red;
+}

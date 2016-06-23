@@ -109,44 +109,44 @@
 </table>
 <!--<tr>-->
 <span id="luck_pillars">
-        <ul class="pillars">
-            <li ng-repeat="luck in l" class="col-md-3 col-sm-4 col-xs-6 pillar">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hover">
-                        <tr class="">
-                            <td>{{luck.start}} - {{luck.end}}</td>
-                        </tr>
+    <ul class="pillars">
+        <li ng-repeat="luck in l" class="col-md-3 col-sm-4 col-xs-6 pillar" currentLuck="{{$index==currentLuck}}">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover">
+                    <tr class="">
+                        <td>{{luck.start}} - {{luck.end}}</td>
+                    </tr>
 
-                        <tr class="hs-visible" style="background-color: {{st[luck.hs].colorCode}}">
-                            <td>{{luck.hs}}</td>
-                        </tr>
+                    <tr class="hs-visible" style="background-color: {{st[luck.hs].colorCode}}">
+                        <td>{{luck.hs}}</td>
+                    </tr>
 
-                        <tr class="eb" style="background-color: {{br[luck.eb].colorCode}}">
-                            <td>{{luck.eb}}</td>
-                        </tr>
+                    <tr class="eb" style="background-color: {{br[luck.eb].colorCode}}">
+                        <td>{{luck.eb}}</td>
+                    </tr>
 
-                        <tr class="hs hs-hidden" style="background-color: {{st[br[luck.eb].h1].colorCode}}">
-                            <td>{{br[luck.eb].h1}}</td>
-                        </tr>
+                    <tr class="hs hs-hidden" style="background-color: {{st[br[luck.eb].h1].colorCode}}">
+                        <td>{{br[luck.eb].h1}}</td>
+                    </tr>
 
-                        <tr class="hs hs-hidden" ng-show="br[luck.eb].h2"
-                            style="background-color: {{st[br[luck.eb].h2].colorCode}}">
-                            <td>{{br[luck.eb].h2}}</td>
-                        </tr>
+                    <tr class="hs hs-hidden" ng-show="br[luck.eb].h2"
+                        style="background-color: {{st[br[luck.eb].h2].colorCode}}">
+                        <td>{{br[luck.eb].h2}}</td>
+                    </tr>
 
-                        <tr class="hs hs-hidden" ng-hide="br[luck.eb].h2">
-                            <td>{{br[luck.eb].h2}}</td>
-                        </tr>
+                    <tr class="hs hs-hidden" ng-hide="br[luck.eb].h2">
+                        <td>{{br[luck.eb].h2}}</td>
+                    </tr>
 
-                        <tr class="hs hs-hidden" ng-show="br[luck.eb].h3"
-                            style="background-color: {{st[br[luck.eb].h3].colorCode}}">
-                            <td>{{br[luck.eb].h3}}</td>
-                        </tr>
-                    </table>
-                </div>
-            </li>
-        </ul>
-    </span>
+                    <tr class="hs hs-hidden" ng-show="br[luck.eb].h3"
+                        style="background-color: {{st[br[luck.eb].h3].colorCode}}">
+                        <td>{{br[luck.eb].h3}}</td>
+                    </tr>
+                </table>
+            </div>
+        </li>
+    </ul>
+</span>
 
 <div class="col-sm-12">
     <h1 class="bg-primary">Stăpânul Zilei {{dm.id}}</h1>

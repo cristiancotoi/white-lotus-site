@@ -113,6 +113,7 @@ angular
 
                 $scope.c = report.detailedChart;
                 $scope.l = report.chart.luck;
+                $scope.currentLuck = report.currentLuckPillar;
                 $scope.lStart = report.chart.startYear;
                 $scope.a = report.chart.astro;
                 $scope.ph = report.phases;
