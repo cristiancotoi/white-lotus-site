@@ -2,7 +2,7 @@
 /*global gapi */
 
 angular
-    .module('personApp.signin', [])
+    .module('whiteLotusApp.signin', [])
     .controller('SignInController', function ($scope, $rootScope) {
         // This flag we use to show or hide the button in our HTML.
         $rootScope.signedIn = false;

@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('personApp.pythagoreanSquare', [])
+    .module('whiteLotusApp.pythagoreanSquare', [])
     .controller('PersonPSquareReportController', function ($scope, $stateParams, Person, PSquare) {
         $scope.person = Person.get({id: $stateParams.id});
         PSquare

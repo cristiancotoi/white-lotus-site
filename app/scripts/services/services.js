@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('personApp.services', ['config'])
+    .module('whiteLotusApp.services', ['config'])
     .factory('Person', function ($resource, ENV) {
         var apiUrl = ENV.apiEndpoint + '/api/persons/:id';
         return $resource(apiUrl, {id: '@_id'}, {

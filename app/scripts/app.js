@@ -16,14 +16,15 @@ angular
         'ngSanitize',
         'ngTouch',
         'ui.router',
+
         'whiteLotusApp',
-        'personApp.signin',
+        'whiteLotusApp.signin',
 
-        'personApp.personControllers',
-        'personApp.pythagoreanSquare',
-        'personApp.baZi',
+        'whiteLotusApp.personControllers',
+        'whiteLotusApp.pythagoreanSquare',
+        'whiteLotusApp.baZi',
 
-        'personApp.services'
+        'whiteLotusApp.services'
     ])
     .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
@@ -74,7 +75,3 @@ angular
                 controller: 'PersonEditController'
             });
     });
-/*.run(function ($state) {
- $state.go('home');
- }
- );*/

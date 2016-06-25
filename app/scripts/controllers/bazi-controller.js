@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('personApp.baZi', [])
+    .module('whiteLotusApp.baZi', [])
     .controller('PersonBaZiReportController', function ($scope, $stateParams, $q, Person, BaZi) {
         $scope.person = Person.get({id: $stateParams.id});
         BaZi.get({id: $stateParams.id})

@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('personApp.personControllers', [])
+    .module('whiteLotusApp.personControllers', [])
     .controller('PersonListController', function ($scope, $rootScope, $state, popupService, $window, Person, $http, ENV) {
         // Only get persons when the user is logged in
         $scope.$watch(function () {
