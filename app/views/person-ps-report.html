@@ -151,6 +151,12 @@
         </span>
     </div>
 
+    <div ng-if="luckChartNumber" class="col-md-12">
+        <h2 class="bg-primary">Graficul Norocului</h2>
+        <p class="lead">{{luckChartNumber}}</p>
+        <div linear-chart chart-data="luckChart"></div>
+    </div>
+
     <div>
         <a class="btn btn-primary btn-sm" ui-sref="viewBaZiReport({id:person._id})">Ba Zi</a>
         <a class="btn btn-primary btn-sm" ui-sref="editPerson({id:person._id})">Editează</a>

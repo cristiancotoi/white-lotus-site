@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('personApp.controllers', [])
+    .module('personApp.personControllers', [])
     .controller('PersonListController', function ($scope, $rootScope, $state, popupService, $window, Person, $http, ENV) {
         // Only get persons when the user is logged in
         $scope.$watch(function () {
@@ -62,102 +62,6 @@ angular
     })
     .controller('PersonViewController', function ($scope, $stateParams, Person) {
         $scope.person = Person.get({id: $stateParams.id});
-    })
-    .controller('PersonPSquareReportController', function ($scope, $stateParams, Person, PSquare) {
-        $scope.person = Person.get({id: $stateParams.id});
-        PSquare
-            .get({id: $stateParams.id})
-            .$promise
-            .then(function (report) {
-                var square = report.square;
-
-                $scope.s = square;
-                $scope.op = report.op;
-
-                $scope.sl = report.spiritLevel;
-                $scope.d = report.destiny;
-                $scope.iv = report['interior vibration'];
-                $scope.ev = report['exterior vibration'];
-                $scope.cv = report['cosmic vibration'];
-
-                $scope.sqm = [];
-                for (var i = 1; i < report.sqMeaning.length; i++) {
-                    $scope.sqm[i - 1] = {meaning: report.sqMeaning[i]};
-                    if (square[i].length) {
-                        $scope.sqm[i - 1].title = 'lui ' + square[i];
-                    } else {
-                        $scope.sqm[i - 1].title = 'lipsei cifrei ' + i;
-                    }
-                }
-                $scope.comb = report['sq combos'];
-
-                $scope.ordLines = [
-                    '123', '456', '789',
-                    '147', '258', '369',
-                    '159', '357'
-                ];
-                $scope.l = report.lines;
-                $scope.lw = report.linesWeight;
-
-                $scope.priorities = report.priorities;
-                $scope.lc = report.lifeCycle;
-                $scope.lcd = report.lifeCycleDesc;
-            });
-    })
-    .controller('PersonBaZiReportController', function ($scope, $stateParams, $q, Person, BaZi) {
-        $scope.person = Person.get({id: $stateParams.id});
-        BaZi.get({id: $stateParams.id})
-            .$promise
-            .then(function (report) {
-                $scope.age = report.age;
-
-                $scope.c = report.detailedChart;
-                $scope.l = report.chart.luck;
-                $scope.currentLuck = report.currentLuckPillar;
-                $scope.lStart = report.chart.startYear;
-                $scope.a = report.chart.astro;
-                $scope.ph = report.phases;
-                $scope.st = report.heavenlyStems;
-                $scope.br = report.earthlyBranches;
-
-                $scope.dm = report.dm;
-                $scope.stScores = report.godsScore;
-
-                $scope.t = {
-                    hour: Math.floor($scope.a.hour),
-                    minute: $scope.a.minute
-                };
-
-                $scope.brRelArray = report.branchRelations;
-
-                $scope.pillarRoNames = {
-                    year: 'An',
-                    month: 'Lună',
-                    day: 'Zi',
-                    hour: 'Oră',
-                    luck: 'Noroc'
-                };
-
-                $scope.ordStems = [
-                    '甲 L+', '乙 L-',
-                    '丙 F+', '丁 F-',
-                    '戊 P+', '己 P-',
-                    '庚 M+', '辛 M-',
-                    '壬 A+', '癸 A-'
-                ];
-
-                $scope.ordBranches = [
-                    '子 zǐ', '丑 chǒu',
-                    '寅 yín', '卯 mǎo', '辰 chén',
-                    '巳 sì', '午 wǔ', '未 wèi',
-                    '申 shēn', '酉 yǒu', '戌 xū',
-                    '亥 hài'
-                ];
-
-                for (var pillar = 0; pillar < Object.keys($scope.c); pillar++) {
-                    $scope.c(pillar).hidStems = report.chart.chart.hidStems;
-                }
-            });
     })
     .controller('PersonCreateController', function ($scope, $rootScope, $state, $stateParams, Person) {
 

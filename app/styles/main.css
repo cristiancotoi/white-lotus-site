@@ -137,3 +137,28 @@ div.tall {
 li.pillar[currentluck="true"] {
     border: solid 1px red;
 }
+
+path.line {
+    fill: none;
+    stroke: purple;
+    stroke-width: 1.5;
+}
+
+path.area {
+    fill: #E2B2B2;
+}
+
+.axis {
+    shape-rendering: crispEdges;
+}
+
+.x.axis line {
+    stroke: green;
+    stroke-width: 1.0;
+}
+
+.y.axis line, .y.axis path, .x.axis path {
+    fill: none;
+    stroke: #107282;
+    stroke-width: 1.0;
+}
