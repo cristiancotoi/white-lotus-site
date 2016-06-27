@@ -114,7 +114,8 @@
             </div>
             <div>
                 <span ng-show="l[lIndex].verb" class="col-sm-6"><strong>Verb:</strong> {{l[lIndex].verb}}</span>
-                <span ng-show="l[lIndex].level" class="col-sm-6"><strong>Nivel mental:</strong> {{l[lIndex].level}}</span>
+                <span ng-show="l[lIndex].level" class="col-sm-6"><strong>Nivel
+                    mental:</strong> {{l[lIndex].level}}</span>
             </div>
 
             <div>
@@ -136,6 +137,7 @@
             </p>
         </span>
     </div>
+
     <div ng-if="lc" class="col-md-12">
         <h2 class="bg-primary">Perioadele vieții</h2>
         <span class="col-md-12" ng-repeat="item in lc">
@@ -153,8 +155,87 @@
 
     <div ng-if="luckChartNumber" class="col-md-12">
         <h2 class="bg-primary">Graficul Norocului</h2>
+
         <p class="lead">{{luckChartNumber}}</p>
+
         <div linear-chart chart-data="luckChart"></div>
+        <div class="col-md-8 col-sm-10 col-xs-12 table-responsive">
+            <table class="table table-bordered table-striped table-hover table-sm">
+                <thead class="thead-inverse">
+                <tr>
+                    <th ng-repeat="d in luckChart">
+                        <p>{{d.value}}</p>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="row in luckYears">
+                    <td ng-repeat="year in row">{{year}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12">
+            <h3 class="text-primary">Prima cifră</h3>
+
+            <p>
+                Deoarece prima cifră este <span>{{luckChart[0].value}}</span>,
+                {{luckChartDesc[luckChart[0].value].first}}
+            </p>
+        </div>
+        <div ng-if="lc" class="col-md-12">
+            <h2 class="bg-primary">Descrierea perioadelor</h2>
+
+            <p>{{luckChartDesc[luckChart[0]].first}}</p>
+            <span class="col-md-12" ng-repeat="item in luckChartDesc | orderBy:'id'">
+                <h4>
+                    Perioada {{item.id}}
+                </h4>
+                <p>
+                    <span class="text-with-newlines">{{item.description}}</span>
+                </p>
+            </span>
+        </div>
+
+    </div>
+
+    <div class="col-md-12">
+        <h2 class="bg-primary">Provocări</h2>
+        <span class="col-md-12" ng-repeat="item in chalArr">
+            <h4>
+                Perioada {{chAndOpIntervals[item.position-1].start}} - {{chAndOpIntervals[item.position-1].end}}
+            </h4>
+            <p class="lead">
+                <strong>Numărul {{item.value}}, {{chalDesc[item.value].title}}</strong>
+            </p>
+            <p>
+                <span class="text-with-newlines">{{chalDesc[item.value].description}}</span>
+            </p>
+            <p>
+                <span class="text-with-newlines">Ca sugestie, {{chalDesc[item.value].suggestion}}</span>
+            </p>
+        </span>
+    </div>
+
+    <div class="col-md-12">
+        <h2 class="bg-primary">Oportunități</h2>
+        <span class="col-md-12" ng-repeat="item in opportArr">
+            <h4>
+                Perioada {{chAndOpIntervals[item.position-1].start}} - {{chAndOpIntervals[item.position-1].end}}
+            </h4>
+            <p class="lead">
+                <strong>Numărul {{item.value}}, {{opportDesc[item.value].title}}</strong>
+            </p>
+            <p>
+                <span class="text-with-newlines">{{opportDesc[item.value].description}}</span>
+            </p>
+        </span>
+    </div>
+
+    <div ng-hide="luckChartNumber" class="col-sm-12">
+        <div ng-hide="stScores">
+            Pentru a vizualiza restul raportului, aveți nevoie de mai multe drepturi.
+        </div>
     </div>
 
     <div>
