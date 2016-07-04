@@ -153,6 +153,39 @@
         </span>
     </div>
 
+    <div ng-show="chalDesc" class="col-md-12">
+        <h2 class="bg-primary">Provocări</h2>
+        <span class="col-md-12" ng-repeat="item in chalArr">
+            <h4>
+                Perioada {{chAndOpIntervals[item.position-1].start}} - {{chAndOpIntervals[item.position-1].end}}
+            </h4>
+            <p class="lead">
+                <strong>Numărul {{item.value}}, {{chalDesc[item.value].title}}</strong>
+            </p>
+            <p>
+                <span class="text-with-newlines">{{chalDesc[item.value].description}}</span>
+            </p>
+            <p>
+                <span class="text-with-newlines">Ca sugestie, {{chalDesc[item.value].suggestion}}</span>
+            </p>
+        </span>
+    </div>
+
+    <div ng-show="opportDesc" class="col-md-12">
+        <h2 class="bg-primary">Oportunități</h2>
+        <span class="col-md-12" ng-repeat="item in opportArr">
+            <h4>
+                Perioada {{chAndOpIntervals[item.position-1].start}} - {{chAndOpIntervals[item.position-1].end}}
+            </h4>
+            <p class="lead">
+                <strong>Numărul {{item.value}}, {{opportDesc[item.value].title}}</strong>
+            </p>
+            <p>
+                <span class="text-with-newlines">{{opportDesc[item.value].description}}</span>
+            </p>
+        </span>
+    </div>
+
     <div ng-if="luckChartNumber" class="col-md-12">
         <h2 class="bg-primary">Graficul Norocului</h2>
 
@@ -197,39 +230,6 @@
             </span>
         </div>
 
-    </div>
-
-    <div class="col-md-12">
-        <h2 class="bg-primary">Provocări</h2>
-        <span class="col-md-12" ng-repeat="item in chalArr">
-            <h4>
-                Perioada {{chAndOpIntervals[item.position-1].start}} - {{chAndOpIntervals[item.position-1].end}}
-            </h4>
-            <p class="lead">
-                <strong>Numărul {{item.value}}, {{chalDesc[item.value].title}}</strong>
-            </p>
-            <p>
-                <span class="text-with-newlines">{{chalDesc[item.value].description}}</span>
-            </p>
-            <p>
-                <span class="text-with-newlines">Ca sugestie, {{chalDesc[item.value].suggestion}}</span>
-            </p>
-        </span>
-    </div>
-
-    <div class="col-md-12">
-        <h2 class="bg-primary">Oportunități</h2>
-        <span class="col-md-12" ng-repeat="item in opportArr">
-            <h4>
-                Perioada {{chAndOpIntervals[item.position-1].start}} - {{chAndOpIntervals[item.position-1].end}}
-            </h4>
-            <p class="lead">
-                <strong>Numărul {{item.value}}, {{opportDesc[item.value].title}}</strong>
-            </p>
-            <p>
-                <span class="text-with-newlines">{{opportDesc[item.value].description}}</span>
-            </p>
-        </span>
     </div>
 
     <div ng-hide="luckChartNumber" class="col-sm-12">

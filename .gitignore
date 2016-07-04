@@ -5,6 +5,7 @@ node_modules/
 tmp
 .idea
 .DS_Store
+.htaccess
 angular-phonecat-snapshots
 bower_components/
 *.iml
