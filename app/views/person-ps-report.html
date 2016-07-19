@@ -30,25 +30,11 @@
         </table>
     </div>
 
-
+    <div class="col-md-12"></div>
     <div class="col-md-12">
-        <h2 class="bg-primary">Numere operaționale</h2>
-
-        <div ng-repeat="o in op" class="col-md-12 col-sm-12">
-            <h4 class="text-primary">Număr operațional {{o.position}}</h4>
-            <span>
-                <div class="col-md-1">
-                    <div>{{o.number}}</div>
-                </div>
-                <div class="col-md-10">
-                    <p class="text-with-newlines">{{o.details.description}}</p>
-                </div>
-            </span>
+        <div class="col-md-11">
+            <h2 class="bg-primary text-danger">Vibrații</h2>
         </div>
-    </div>
-    <div class="col-md-12">
-        <h2 class="bg-primary text-danger">Vibrații</h2>
-
         <div>
             <h3 class="text-primary">Nivel spiritual {{sl.level}}</h3>
             <span class="col-md-12">
@@ -85,6 +71,21 @@
             </span>
         </div>
     </div>
+    <!--div class="col-md-12">
+        <h2 class="bg-primary">Numere operaționale</h2>
+
+        <div ng-repeat="o in op" class="col-md-12 col-sm-12">
+            <h4 class="text-primary">Număr operațional {{o.position}}</h4>
+            <span>
+                <div class="col-md-1">
+                    <div>{{o.number}}</div>
+                </div>
+                <div class="col-md-10">
+                    <p class="text-with-newlines">{{o.details.description}}</p>
+                </div>
+            </span>
+        </div>
+    </div-->
     <div ng-if="sqm" class="col-md-12">
         <h2 class="bg-primary">Semnificațiile căsuțelor din pătrat</h2>
 
@@ -142,11 +143,12 @@
         <h2 class="bg-primary">Perioadele vieții</h2>
         <span class="col-md-12" ng-repeat="item in lc">
             <h4>
-                Perioada {{item.start}} - {{item.end}}
+                Perioada {{item.min}} - {{item.max}} ani
+                <span ng-show="item.start!='Invalid date'"> ({{item.start}} - {{item.end}})</span>
             </h4>
-            <p>
-                <strong>Numărul {{item.number}}</strong>
-            </p>
+            <h5>
+                Numărul {{item.number}}
+            </h5>
             <p>
                 <span class="text-with-newlines">{{lcd[item.number].description}}</span>
             </p>
@@ -157,7 +159,8 @@
         <h2 class="bg-primary">Provocări</h2>
         <span class="col-md-12" ng-repeat="item in chalArr">
             <h4>
-                Perioada {{chAndOpIntervals[item.position-1].start}} - {{chAndOpIntervals[item.position-1].end}}
+                Perioada {{chAndOpIntervals[item.position-1].min}} - {{chAndOpIntervals[item.position-1].max}} ani
+                <span ng-show="chAndOpIntervals[item.position-1].start!='Invalid date'"> ({{chAndOpIntervals[item.position-1].start}} - {{chAndOpIntervals[item.position-1].end}})</span>
             </h4>
             <p class="lead">
                 <strong>Numărul {{item.value}}, {{chalDesc[item.value].title}}</strong>
@@ -175,7 +178,8 @@
         <h2 class="bg-primary">Oportunități</h2>
         <span class="col-md-12" ng-repeat="item in opportArr">
             <h4>
-                Perioada {{chAndOpIntervals[item.position-1].start}} - {{chAndOpIntervals[item.position-1].end}}
+                Perioada {{chAndOpIntervals[item.position-1].min}} - {{chAndOpIntervals[item.position-1].max}} ani
+                <span ng-show="chAndOpIntervals[item.position-1].start!='Invalid date'"> ({{chAndOpIntervals[item.position-1].start}} - {{chAndOpIntervals[item.position-1].end}})</span>
             </h4>
             <p class="lead">
                 <strong>Numărul {{item.value}}, {{opportDesc[item.value].title}}</strong>
@@ -217,7 +221,7 @@
             </p>
         </div>
         <div ng-if="lc" class="col-md-12">
-            <h2 class="bg-primary">Descrierea perioadelor</h2>
+            <h3 class="text-primary">Descrierea perioadelor</h3>
 
             <p>{{luckChartDesc[luckChart[0]].first}}</p>
             <span class="col-md-12" ng-repeat="item in luckChartDesc | orderBy:'id'">

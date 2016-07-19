@@ -177,12 +177,12 @@
 <div ng-show="brRelArray" class="col-sm-12">
     <h1 class="bg-primary">Relații în hartă</h1>
 
-    <div ng-repeat="rel in brRelArray">
+    <div class="col-sm-12" ng-repeat="rel in brRelArray">
         <h2 class="text-primary">
             <span ng-hide="rel.relation.subcategory">{{rel.relation.category}}</span>
             <span ng-show="rel.relation.subcategory">{{rel.relation.subcategory}}</span>
         </h2>
-        <span ng-repeat="sets in rel.matchingPillars">
+        <span class="col-sm-12" ng-repeat="sets in rel.matchingPillars">
             <div class="col-md-12">
                 <span ng-repeat="pSet in sets">
                     <div class="col-md-4 col-sm-4 col-xs-6">
@@ -215,6 +215,64 @@
 
         <p class="col-md-12 text-with-newlines" ng-if="rel.relation.subcategorySolution">
             {{rel.relation.subcategorySolution}}</p>
+    </div>
+</div>
+
+<div ng-show="ss" class="col-sm-12">
+    <h1 class="bg-primary">Stele simbolice</h1>
+    <h2 class="text-primary">Poziții</h2>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+        <tr>
+            <td class="lead text-primary">Oră</td>
+            <td class="lead text-primary">Zi</td>
+            <td class="lead text-primary">Lună</td>
+            <td class="lead text-primary">An</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="hs hs-visible" style="background-color: {{st[c.hour.hs].colorCode}}">
+                <div>{{c.hour.hs}}</div>
+                <div ng-repeat="star in ss.hour.hs">{{ssDesc[star.name].name}}</div>
+            </td>
+            <td class="hs hs-visible" style="background-color: {{st[c.day.hs].colorCode}}">
+                <div>{{c.day.hs}}</div>
+                <div ng-repeat="star in ss.day.hs">{{ssDesc[star.name].name}}</div>
+            </td>
+            <td class="hs hs-visible" style="background-color: {{st[c.month.hs].colorCode}}">
+                <div>{{c.month.hs}}</div>
+                <div ng-repeat="star in ss.month.hs">{{ssDesc[star.name].name}}</div>
+            </td>
+            <td class="hs hs-visible" style="background-color:{{st[c.year.hs].colorCode}}">
+                <div>{{c.year.hs}}</div>
+                <div ng-repeat="star in ss.year.hs">{{ssDesc[star.name].name}}</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="eb" style="background-color: {{br[c.hour.eb].colorCode}}">
+                <div>{{c.hour.eb}}</div>
+                <div ng-repeat="star in ss.hour.eb">{{ssDesc[star.name].name}}</div>
+            </td>
+            <td class="eb" style="background-color: {{br[c.day.eb].colorCode}}">
+                <div>{{c.day.eb}}</div>
+                <div ng-repeat="star in ss.day.eb">{{ssDesc[star.name].name}}</div>
+            </td>
+            <td class="eb" style="background-color: {{br[c.month.eb].colorCode}}">
+                <div>{{c.month.eb}}</div>
+                <div ng-repeat="star in ss.month.eb">{{ssDesc[star.name].name}}</div>
+            </td>
+            <td class="eb" style="background-color: {{br[c.year.eb].colorCode}}">
+                <div>{{c.year.eb}}</div>
+                <div ng-repeat="star in ss.year.eb">{{ssDesc[star.name].name}}</div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <h2 class="text-primary">Poziții</h2>
+    <div ng-repeat="desc in ssDesc">
+        <h3>{{desc.name}} ({{desc.chinese}})</h3>
+        <p>{{desc.description}}</p>
     </div>
 </div>
 

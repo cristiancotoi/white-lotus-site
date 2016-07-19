@@ -55,5 +55,8 @@ angular
                 for (var pillar = 0; pillar < Object.keys($scope.c); pillar++) {
                     $scope.c(pillar).hidStems = report.chart.chart.hidStems;
                 }
+
+                $scope.ss = report.shenSha;
+                $scope.ssDesc = report.shenShaDesc;
             });
     });
