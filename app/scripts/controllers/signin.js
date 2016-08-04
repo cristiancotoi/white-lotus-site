@@ -39,16 +39,20 @@ angular
 
         // Render the sign in button.
         $scope.renderSignInButton = function () {
-            gapi.signin.render('signInButton',
-                {
-                    'callback': $scope.signInCallback, // Function handling the callback.
-                    'clientid': '551441825719-29ro8j3up3u0gllimuj901328baf4qrn.apps.googleusercontent.com', // CLIENT_ID from developer console
-                    'requestvisibleactions': 'http://schemas.google.com/AddActivity', // Visible actions, scope and cookie policy wont be described now,
-                                                                                      // as their explanation is available in Google+ API Documentation.
-                    'scope': 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email',
-                    'cookiepolicy': 'single_host_origin'
-                }
-            );
+            if (typeof gapi !== 'undefined') {
+                gapi.signin.render('signInButton',
+                    {
+                        'callback': $scope.signInCallback, // Function handling the callback.
+                        'clientid': '551441825719-29ro8j3up3u0gllimuj901328baf4qrn.apps.googleusercontent.com', // CLIENT_ID from developer console
+                        'requestvisibleactions': 'http://schemas.google.com/AddActivity', // Visible actions, scope and cookie policy wont be described now,
+                                                                                          // as their explanation is available in Google+ API Documentation.
+                        'scope': 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email',
+                        'cookiepolicy': 'single_host_origin'
+                    }
+                );
+            } else {
+                $rootScope.signedIn = true;
+            }
         };
 
         // Process user info.
@@ -67,13 +71,15 @@ angular
 
         // Request user info.
         $scope.getUserInfo = function () {
-            gapi.client.request(
-                {
-                    'path': '/plus/v1/people/me',
-                    'method': 'GET',
-                    'callback': $scope.userInfoCallback
-                }
-            );
+            if (gapi) {
+                gapi.client.request(
+                    {
+                        'path': '/plus/v1/people/me',
+                        'method': 'GET',
+                        'callback': $scope.userInfoCallback
+                    }
+                );
+            }
         };
 
         $scope.signOut = function () {
