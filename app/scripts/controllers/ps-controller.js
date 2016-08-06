@@ -57,7 +57,7 @@ angular
     .directive('linearChart', function ($window) {
         return {
             restrict: 'EA',
-            template: '<svg width="600" class="col-md-12 col-sm-12 col-xs-12" height="200"></svg>',
+            template: '<svg height="200"></svg>',
             link: function (scope, elem, attrs) {
                 var dataToPlot = scope[attrs.chartData];
                 var padding = 20;
@@ -67,6 +67,8 @@ angular
                 var d3 = $window.d3;
                 var rawSvg = elem.find('svg')[0];
                 var svg = d3.select(rawSvg);
+                svg.attr('width', elem.width());
+                //svg.attr('height', elem.width() * 2 / 3);
                 console.log(svg[0]);
                 var width = svg.attr('width'),
                     height = svg.attr('height');
@@ -114,12 +116,12 @@ angular
 
                     svg.append('svg:g')
                         .attr('class', 'x axis')
-                        .attr('transform', 'translate(0,180)')
+                        .attr('transform', 'translate(0,' + (height - padding) + ')')
                         .call(xAxisGen);
 
                     svg.append('svg:g')
                         .attr('class', 'y axis')
-                        .attr('transform', 'translate(20,0)')
+                        .attr('transform', 'translate(' + padding + ',0)')
                         .call(yAxisGen);
 
                     svg.append('svg:path')

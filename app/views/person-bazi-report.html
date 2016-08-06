@@ -168,9 +168,12 @@
 
 <div ng-show="stScores" class="col-sm-12">
     <h1 class="bg-primary">Puterea zeilor</h1>
-
-    <div ng-repeat="stName in ordStems">
-        <strong style="background-color:{{st[stName].colorCode}}">{{stName}}</strong>{{stScores[stName].total}}
+    <!--NG-IF must be here to delay drawing until the data is populated-->
+    <div ng-if="stScores">
+        <div gods-strength-pie-chart=""
+             chart-data="stScores"
+             day-master="dm"
+             ordered-stems="ordStems"></div>
     </div>
 </div>
 
