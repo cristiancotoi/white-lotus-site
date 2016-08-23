@@ -20,6 +20,7 @@ angular
 
                 $scope.dm = report.dm;
                 $scope.stScores = report.godsScore;
+                $scope.sb = report.starBinomial;
 
                 $scope.t = {
                     hour: Math.floor($scope.a.hour),

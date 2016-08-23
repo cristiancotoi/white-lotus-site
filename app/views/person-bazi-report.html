@@ -177,7 +177,49 @@
     </div>
 </div>
 
-<div ng-show="brRelArray" class="col-sm-12">
+<div ng-if="sb.length" class="col-sm-12">
+    <h1 class="bg-primary">Binoamele zilei</h1>
+    <div class="col-sm-12" ng-repeat="starBinomial in sb">
+        <h2>
+            <span>{{starBinomial.category}}</span>
+            <span ng-if="starBinomial.chinese">({{starBinomial.chinese}} {{starBinomial.pinyin}})</span>
+        </h2>
+        <p>
+            <span>{{starBinomial.stem}}</span>
+            <span>{{starBinomial.branch}}</span>
+            <span>{{starBinomial.season}}</span>
+        </p>
+        <p>{{starBinomial.description}}</p>
+    </div>
+    <div>
+
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+            <tr>
+                <td class="lead text-primary">Zi</td>
+                <td ng-if="starBinomial.season" class="lead text-primary">Lună</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="hs hs-visible" style="background-color: {{st[c.day.hs].colorCode}}">
+                    <div>{{c.day.hs}}</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="eb" style="background-color: {{br[c.day.eb].colorCode}}">
+                    <div>{{c.day.eb}}</div>
+                </td>
+                <td ng-if="starBinomial.season" class="eb" style="background-color: {{br[c.month.eb].colorCode}}">
+                    <div>{{c.month.eb}}</div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div ng-if="brRelArray.length" class="col-sm-12">
     <h1 class="bg-primary">Relații în hartă</h1>
 
     <div class="col-sm-12" ng-repeat="rel in brRelArray">
