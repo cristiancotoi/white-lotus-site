@@ -19,6 +19,7 @@ angular
                 $scope.br = report.earthlyBranches;
 
                 $scope.dm = report.dm;
+                $scope.nlt = report.normalLifeType;
                 $scope.stScores = report.godsScore;
                 $scope.sb = report.starBinomial;
 
@@ -72,6 +73,7 @@ angular
                 var stemScores = scope[attrs.chartData];
                 var ordStems = scope[attrs.orderedStems];
                 var dm = scope[attrs.dayMaster].id;
+                var dmColor = attrs.dmColor;
 
                 var tmp = [];
                 // put the key into each object for easier id
@@ -267,8 +269,8 @@ angular
                         .attr('width', w + margin.left + margin.right)
                         .attr('height', h + margin.top + margin.bottom)
                         .append('g')
-                        .attr('transform', 'translate(' + (w / 2 /*+ margin.left*/) +
-                            ',' + (h / 2 /*+ margin.top*/) + ')');
+                        .attr('transform', 'translate(' + (w / 2) +
+                            ',' + (h / 2) + ')');
 
                     var total = 0;
                     for (var i = 0; i < stemScores.length; i++) {
@@ -303,7 +305,8 @@ angular
                     chartCore
                         .append('circle')
                         .attr('r', radius / 3)
-                        .attr('class', 'day-master');
+                        .attr('class', 'day-master')
+                        .style('fill', dmColor);
                     chartCore
                         .append('text')
                         .style('text-anchor', 'middle')

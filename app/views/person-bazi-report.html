@@ -31,7 +31,7 @@
             </p>
         </td>
     </tr>
-    <tr>
+    <tr ng-show="c">
         <td class="table-responsive">
             <table class="table table-bordered table-striped table-hover">
                 <caption>Harta personală</caption>
@@ -108,7 +108,7 @@
     </tr>
 </table>
 <!--<tr>-->
-<span id="luck_pillars">
+<span ng-show="luck_pillars" id="luck_pillars">
     <ul class="pillars">
         <li ng-repeat="luck in l" class="col-md-3 col-sm-4 col-xs-6 pillar" currentLuck="{{$index==currentLuck}}">
             <div class="table-responsive">
@@ -148,7 +148,7 @@
     </ul>
 </span>
 
-<div class="col-sm-12">
+<div ng-show="dm" class="col-sm-12">
     <h1 class="bg-primary">Stăpânul Zilei {{dm.id}}</h1>
 
     <div class="col-md-12 text-with-newlines">{{dm.description}}</div>
@@ -166,6 +166,12 @@
     </div>
 </div>
 
+<div ng-show="nlt" class="col-sm-12">
+    <h1 class="bg-primary">Tip normal de viață: {{nlt.name}} ({{nlt.shortname}})</h1>
+
+    <div class="col-md-12 text-with-newlines">{{nlt.description}}</div>
+</div>
+
 <div ng-show="stScores" class="col-sm-12">
     <h1 class="bg-primary">Puterea zeilor</h1>
     <!--NG-IF must be here to delay drawing until the data is populated-->
@@ -173,22 +179,26 @@
         <div gods-strength-pie-chart=""
              chart-data="stScores"
              day-master="dm"
-             ordered-stems="ordStems"></div>
+             ordered-stems="ordStems"
+             dm-color={{st[c.day.hs].colorCode}}></div>
     </div>
 </div>
 
 <div ng-if="sb.length" class="col-sm-12">
     <h1 class="bg-primary">Binoamele zilei</h1>
+
     <div class="col-sm-12" ng-repeat="starBinomial in sb">
         <h2>
             <span>{{starBinomial.category}}</span>
             <span ng-if="starBinomial.chinese">({{starBinomial.chinese}} {{starBinomial.pinyin}})</span>
         </h2>
+
         <p>
             <span>{{starBinomial.stem}}</span>
             <span>{{starBinomial.branch}}</span>
             <span>{{starBinomial.season}}</span>
         </p>
+
         <p>{{starBinomial.description}}</p>
     </div>
     <div>
@@ -265,6 +275,7 @@
 
 <div ng-show="ss" class="col-sm-12">
     <h1 class="bg-primary">Stele simbolice</h1>
+
     <h2 class="text-primary">Poziții</h2>
     <table class="table table-bordered table-striped table-hover">
         <thead>
@@ -315,8 +326,10 @@
         </tbody>
     </table>
     <h2 class="text-primary">Semnificații</h2>
+
     <div ng-repeat="desc in ssDesc">
         <h3>{{desc.name}} ({{desc.chinese}})</h3>
+
         <p>{{desc.description}}</p>
     </div>
 </div>
