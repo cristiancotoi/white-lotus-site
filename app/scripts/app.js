@@ -27,7 +27,7 @@ angular
         'whiteLotusApp.services'
     ])
     .config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/persons');
         $stateProvider
             .state('home', {
                 url: '/',

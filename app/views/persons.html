@@ -1,27 +1,44 @@
+<div class="jumbotron" ng-if="!signedIn">
+    <h1>White Lotus</h1>
+
+    <p class="lead">
+        Lucruri un pic mai clare
+    </p>
+
+    <!--<p ng-show="signedIn"><a class="btn btn-lg btn-success" ui-sref="persons">Vezi analizele</a></p>-->
+    <p ng-hide="signedIn">Conectați-vă cu contul Google pentru a putea folosi aplicația</p>
+</div>
 <div class='tall' ng-show="signedIn">
     <a ui-sref="newPerson" class="btn-success btn-sm nodecoration">Adaugă o persoană</a>
 </div>
-<table class="table persontable" ng-show="signedIn">
-    <tr>
-        <td><h3>Toate analizele</h3></td>
-        <td></td>
-    </tr>
-    <tr>
-        <input type="text" ng-model="search.name" placeholder="Caută nume">
-        <input type="text" ng-model="search.surname" placeholder="Caută prenume">
-        <select name="repeatSelect" id="repeatSelect" ng-model="personsOrderBy">
+<div class="persontable" ng-show="signedIn">
+    <div>
+        <h3>Toate analizele</h3>
+    </div>
+    <div>
+        <input type="text" ng-model="search" placeholder="Filtrează">
+    </div>
+    <div>
+        <span>Sortează după </span>
+        <select name="repeatSelect" id="repeatSelect" ng-model="personsOrderBy" title="Sortează lista de persoane">
             <option value="">-- sortează --</option>
             <option ng-repeat="option in orderOptions" value="{{option.value}}">{{option.label}}</option>
         </select>
-    </tr>
-    <tr ng-repeat="person in persons | orderBy:personsOrderBy | filter:search">
-        <td>{{person.name}} {{person.surname}} ({{person.date.day}}/{{person.date.month}}/{{person.date.year}})</td>
-        <td>
+    </div>
+    <div ng-repeat="person in persons | orderBy:personsOrderBy | filter:search"
+         class="col-md-12 col-sm-12 col-xs-12 bottom-padding-10">
+        <span class="col-md-6 col-sm-6 col-xs-12">
+            <span class="col-md-7 col-sm-12 col-xs-6">
+                <strong>{{person.name}} {{person.surname}}</strong>
+            </span>
+            <span class="col-md-5 col-sm-12 col-xs-6">({{person.date.day}}/{{person.date.month}}/{{person.date.year}})</span>
+        </span>
+        <span class="col-md-6 col-sm-6 col-xs-12">
             <a class="btn btn-primary btn-xs" ui-sref="viewPSquareReport({id:person._id})">Psihomatrice</a>
             <a class="btn btn-primary btn-xs" ui-sref="viewBaZiReport({id:person._id})">Ba Zi</a>
             <a class="btn btn-default btn-xs" ui-sref="viewPerson({id:person._id})">Detalii</a>
-            <a class="btn btn-danger btn-xs" ng-click="deletePerson(person)">Șterge</a>
-        </td>
-    </tr>
-</table>
+            <a class="btn btn-danger btn-xs pull-right" ng-click="deletePerson(person)">Șterge</a>
+        </span>
+    </div>
+</div>
 <p ng-hide="signedIn">Conectați-vă cu contul Google pentru a putea folosi aplicația</p>

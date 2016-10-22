@@ -64,6 +64,11 @@ body {
     margin-top: 28px;
 }
 
+.navbar li > span {
+    padding: 15px 15px;
+    display: block;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
@@ -87,6 +92,10 @@ body {
     .jumbotron {
         border-bottom: 0;
     }
+}
+
+.bottom-padding-10 {
+    padding-bottom: 8px;
 }
 
 .hs-visible {
