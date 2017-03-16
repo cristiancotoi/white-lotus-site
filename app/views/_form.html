@@ -50,7 +50,7 @@
         <input type="number" ng-model="person.date.minutes" class="form-control" id="minutes" placeholder="Minute"/>
     </div>
 </div>
-<div class="form-group" ng-if="person.date.hour&&person.date.minutes">
+<div class="form-group" ng-if="person.date.hour!=undefined&&person.date.minutes!=undefined">
     <label for="tz" class="col-sm-4 control-label">Fus orar (GMT)</label>
 
     <div class="col-sm-2">

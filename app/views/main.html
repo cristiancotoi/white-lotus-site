@@ -9,6 +9,21 @@
     <p ng-hide="signedIn">Conectați-vă cu contul Google pentru a putea folosi aplicația</p>
 </div>
 
+<span ng-controller="SignInController">
+    <ul class="nav navbar-nav navbar-right" ng-hide="signedIn">
+        <li id="googleSignIn" class="nav-wl">
+            <span id="signInButton">
+            </span>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" ng-if="signedIn">
+        <li class="nav-wl">
+            <span>Bun venit {{userName}}</span>
+        </li>
+        <li><a href="#" onclick="signOut();" ui-sref="persons">Deconectează</a></li>
+    </ul>
+</span>
+
 <div class="row marketing">
     <h4>BaZi</h4>
 
