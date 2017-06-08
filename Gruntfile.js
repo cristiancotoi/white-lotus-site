@@ -450,7 +450,7 @@ module.exports = function (grunt) {
                 constants: {
                     ENV: {
                         name: 'production',
-                        apiEndpoint: 'http://whitelotus-cristiancotoi.rhcloud.com/'
+                        apiEndpoint: 'http://whitelotus-cristiancotoi.rhcloud.com'
                     }
                 }
             }

@@ -24,9 +24,11 @@ angular
         'whiteLotusApp.pythagoreanSquare',
         'whiteLotusApp.baZi',
 
-        'whiteLotusApp.services'
+        'whiteLotusApp.services',
+
+        'socialLogin'
     ])
-    .config(function ($stateProvider, $urlRouterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, socialProvider) {
         $urlRouterProvider.otherwise('/persons');
         $stateProvider
             .state('home', {
@@ -74,4 +76,6 @@ angular
                 templateUrl: 'views/person-edit.html',
                 controller: 'PersonEditController'
             });
+        socialProvider.setGoogleKey('551441825719-29ro8j3up3u0gllimuj901328baf4qrn.apps.googleusercontent.com');
+        socialProvider.setFbKey({appId: '2011002092461069', apiVersion: 'v2.9'});
     });
