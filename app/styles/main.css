@@ -122,21 +122,26 @@ div.tall {
 }
 
 .pillar {
-    display: inline-block;
-    padding: 6px;
+    padding: 0;
     vertical-align: top;
     margin: 1px;
+    flex: none;
+}
+
+ul.pillars {
+    padding-left: 0;
 }
 
 .pillars {
     text-align: center;
-    display: inline-flex;
+    display: flex;
 }
 
 #luck_pillars .pillars {
     overflow-x: scroll;
     overflow-y: hidden;
     width: 100%;
+    list-style: none;
 }
 
 .top-buffer {
